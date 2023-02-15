@@ -1,0 +1,223 @@
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+    height: 0vh;
+    background: var(--back);
+    z-index: 99999999999;
+    font-size: 18px;
+    transition: height .32s ease-in-out;
+}
+header.is-active {
+    height: 10vh;
+}
+header a {
+    text-decoration: none !important;
+}
+header i {
+    height: 2.5rem;
+    font-size: 2.5rem;
+    color: white;
+}
+header > nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+header > nav > ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    list-style-type: none;
+    width: 80%;
+}
+header > nav > a > img { 
+    width: 7vh;
+    height: 7vh;
+}
+header > nav > ul > li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 200px;
+    margin-inline: 15px;
+}
+header > nav > ul > li > a {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+header > nav > ul > li > a > span {
+    transform: translateY(30px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+    background: var(--transparent-white);
+    color: #000000f0;
+    padding-inline: 5px;
+    padding-block: 2.5px;
+    border-radius: .5rem;
+    margin-inline: 5px;
+}
+header > nav > ul > li:nth-child(8) > a > span {
+    font-size: 15px;
+}
+header.is-active > nav > ul > li:hover > a > span {
+    transform: translateY(0px);
+    opacity: 1;
+    visibility: visible;
+}
+header.is-active > nav > ul > li.is-active > a > span {
+    transform: translateY(0px);
+    opacity: 1;
+    visibility: visible;
+    transition: all .3s;
+}
+header > nav > ul > li.is-active > a > span {
+    opacity: 0;
+    visibility: hidden;
+}
+header.is-active > nav > ul > li.is-active > a > i {
+    color: var(--letter);
+}
+header > nav > ul > li > a > i, 
+header img {
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s;
+}
+header.is-active > nav > ul > li > a > i,
+header.is-active img {
+    opacity: 1;
+    visibility: visible;
+}
+.hamburger {
+    display: none !important;
+}
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    background: white !important;
+}
+header > nav > div > a {
+    width: 59.6px;
+    height: 59.6px;
+}
+header > nav > div > a:hover > img {
+    transform: scale(1.08, 1.08);
+}
+header > nav > div > a > img {
+    width: 59.6px;
+    height: 59.6px;
+}
+
+@media screen and (max-width:1300px) {
+    header > nav > ul > li > a {
+        justify-content: space-between;
+    } 
+}
+@media screen and (max-width: 1250px) {
+    header.is-active {
+        height: 11vh;
+    }
+    header > nav {
+        flex-direction: column;
+    }
+    header > nav > ul {
+        width: 100%;
+    }
+}
+@media screen and (max-width: 1130px) {
+    header {
+        font-size: 14px;
+    }
+    header > nav > ul {
+        width: 80%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    header.is-active.show {
+        height: 65vh;
+        overflow: hidden;
+    }
+    header.is-active {
+        overflow: hidden;
+    }
+    header > nav {
+        overflow: hidden;
+    }
+    header > nav > div {
+        top: 0;
+        position: fixed;
+        margin-block: .5vh;
+        display: flex;
+        width: calc(100% - 10vw);
+        justify-content: space-between;
+        align-items: center;
+        height: 10vh;
+    }
+    header.is-active .hamburger {
+        display: inline-block !important;
+    }
+    header > nav > ul {
+        position: fixed;
+        top: calc(5vh + 50px);
+        margin-bottom: 5vh;
+        overflow: hidden;
+        width: 100%;
+        flex-direction: column;
+        height: 0;
+        transition: height .3s ease-in-out;
+    }
+    header > nav > ul.show {
+        height: 50vh;
+    }
+    header > nav > ul > li {
+        width: 100%;
+        margin-block: 1vh;
+    }
+    header > nav > ul > li > a {
+        justify-content: space-between;
+        margin-inline: 5vw;
+    }
+    header.is-active > nav > ul > li > a > span {
+    transform: translateY(0px);
+    opacity: 1;
+    visibility: visible;
+    transition: all .3s;
+}
+}
+/**Nothing to do with header but I dont want to put all the css in every file**/
+#title > i {
+    position: absolute;
+    top: 95vh;
+    color: var(--back);
+    font-size: 3.5rem;
+    animation: title-arrows infinite ease-out 1.5s;
+}
+#title > i.left {
+    left: 60vh;
+}
+#title > i.right {
+    right: 60vh;
+}
+#title > span {
+
+}
+@keyframes title-arrows {
+   0% {
+    top: 93vh;
+   } 
+   50% {
+    top: 91vh;
+   }
+   100% {
+    top: 93vh;
+   }
+}

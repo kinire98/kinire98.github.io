@@ -1,0 +1,484 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+:root {
+    --letter: #FFCA5F;
+    --back: #302455;
+    --transparent-white: rgba(255,255,255, .35);
+    --card-color: rgb(23,23,23);
+    --letter-dif: #FFCA5F66;
+    --black: rgba(0,0,0,.5);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+html {
+    scrollbar-color: var(--letter) var(--back);
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    background: var(--back);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--letter);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--letter-dif);
+}
+body {
+    background: #302455;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 25px;
+    overflow-x: hidden;
+}
+h2 {
+    text-align: center;
+    z-index: 2;
+    background: var(--back);
+    padding: 1rem;
+    border-radius: 1rem;
+}
+hr {
+    width: 75%;
+} 
+a:hover > i, a:hover > img {
+    transform: scale(1.08, 1.08);
+    cursor: pointer;
+}
+div {
+    position: relative;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.black {
+    background: rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+}
+/**Title**/
+#title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background: black;
+    background-image: radial-gradient(rgba(255,255,255,.2) 3px, transparent 0%);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+    margin-block-end: 0;
+    position: relative;
+    z-index: 2;
+}
+hr.complete {
+    width: 100%;
+}
+#title > h2 {
+    background: none;
+}
+/**E-mail form**/
+#email-form {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    padding-block: 25vh;
+    margin-inline: 1vw;
+    overflow: hidden;
+    z-index: 1;
+}
+#email-form > form {
+    width: 65%;
+    height: 100%;
+    font-size: 25px;
+} 
+#email-form > form > fieldset {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 1rem;
+    padding: .5rem;
+    border: 1px solid var(--letter);
+    background: var(--back);
+}
+#email-form > form > fieldset > legend {
+    padding: .5rem;
+}
+#email-form input, #email-form select {
+    margin: .2rem;
+    padding: .5rem;
+    border: 1px solid var(--letter);
+    border-radius: .25rem;
+    background: var(--back);
+    color: white;
+    width: 96%;
+    font-size: 20px;
+}
+#email-form #type {
+    width: 96%;
+}
+#email-form input[type="submit"] {
+    cursor: pointer;
+}
+#email-form textarea {
+    width: 96%;
+    height: 10rem;
+    padding: .5rem;
+    margin: 1rem;
+    border: 1px solid var(--letter);
+    border-radius: .25rem;
+    background: var(--back);
+    color: white;
+    resize: none;
+    font-size: 15px;
+}
+#email-form img {
+    position: relative;
+    width: 10rem;
+    display: none;
+}
+#gmail {
+    padding: 0;
+    margin: 0;
+}
+#email-form textarea.blank,
+#email-form input.blank{
+    background: var(--transparent-white);
+}
+#email-form input#personal-data {
+    width: auto;
+    margin-block: 5px;
+    font-size: 75%;
+}
+/** little dotted details **/
+.back {
+    position: fixed;
+    z-index: 0;
+}
+.yellow-dots {
+    width: 1000px;
+    height: 1000px;
+    background-image: radial-gradient(var(--letter) 3px, transparent 0%);
+    background-size: 40px 40px;
+    transform: rotate(-45deg);
+    border-radius: 35%;
+    right: -650px;
+    top: 50px;
+}
+.white-back {
+    width: 1750px;
+    height: 1000px;
+    background: var(--transparent-white);
+    transform: rotate(-45deg);
+    border-radius: 15rem;
+    right: -1500px;
+    top: 100px;
+}
+.blue-dots {
+    width: 1000px;
+    height: 1000px;
+    background-image: radial-gradient(var(--back) 3px, transparent 0%);
+    background-size: 40px 40px;
+    transform: rotate(45deg);
+    border-radius: 35%;
+    top: 0;
+    left: 0;
+}
+.yellow-back {
+    width: 1000px;
+    height: 1000px;
+    background: var(--letter);
+    transform: rotate(45deg);
+    border-radius: 15rem;
+    left: -700px;
+    top: -400px;
+}
+/*Contact-cards*/
+
+#contact-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: inherit;
+    position: relative;
+    margin: 5rem;
+    z-index: 2;
+}
+.inner-contact-cards {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    z-index: 2;
+}
+.card {
+    aspect-ratio: 1/0.8;
+    border: 0.5vmin solid var(--border);
+    cursor: pointer;
+    position: relative;
+    width: 500px;
+    background: black;
+    margin: 5rem;
+    margin-block-end: 12rem;
+    border-radius: 1rem;
+    margin-inline: 1vw;
+    transform: none !important;
+    z-index: 2;
+}
+
+.card::before {
+    border-radius: 1rem;
+    background: linear-gradient(
+        130deg,
+        transparent 0% 33%,
+        var(--g1) 66%,
+        var(--g2) 83.5%,
+        var(--g3) 100%
+    );
+    background-position: 0% 0%;
+    background-size: 300% 300%;
+    content: "";
+    height: 100%;
+    left:0px;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    transition: all 350ms ease;
+}
+
+.card:hover::before {
+    background-position: 100% 100%;
+    transform: scale(1.08, 1.03);
+}
+
+.card-content { 
+    background-image: radial-gradient(rgba(255,255,255,.2) 3px, transparent 0%);
+    /* background-position: 0% 0%; */
+    background-size: 40px 40px;
+    background-repeat: auto;
+    height: calc(100% - 5rem);
+    width: calc(100% - 5rem);
+    padding: 2.5rem;
+    transition: background-position 350ms ease;
+    z-index: 3;
+    position: relative;
+}
+.card:hover > .card-content {
+    background-position: -10% 0%;
+    
+}
+.card-title,
+.card-subtitle {
+    font-weight: 400;
+    margin: 0px;
+ }
+
+.card-title {
+    font-size: 35px;
+}
+.card-subtitle {
+    font-size: 25px;
+    margin-top: 1rem;
+}
+.card-subtitle-word {
+    display: inline-block;
+    margin: 0rem .3rem;
+    position: relative;
+    transform: translateY(40%);
+    transition: none;
+    opacity: 0;
+}
+.card:hover > .card-content > .card-subtitle > .card-subtitle-word {
+    opacity: 1;
+    transform: translateY(0%);
+    transition: opacity 0ms, transform 200ms cubic-bezier(.9, .06, .15, .9);
+}
+.card-icon {
+    bottom: 0px;
+    color: var(--border);
+    font-size: 50px;
+    left: 0px;
+    margin: 2.5rem;
+    position: absolute !important;
+    transition: color 250ms ease;
+    z-index: 3;
+    width: 5rem;
+}
+.card:hover > .card-icon {
+    color: white;
+}
+/**Code section**/
+#page-code {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 100%;
+    min-height: 85vh;
+    padding-block: 15vh;
+    z-index: 2;
+}
+#page-code > .row {
+    flex-direction: row;
+}
+
+/**About me**/
+#me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    min-height: 25vh;
+    z-index: 2;
+    background-image: url('../img/myDesktop.jpg');
+    background-attachment: fixed;
+    padding: 5vh;
+}
+#me > #column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 25vh;
+    z-index: 2;
+}
+#me a {
+    margin-block: 2vh;
+    background: transparent;
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border-radius: 2rem;
+    color: var(--letter);
+    border: 2px solid var(--letter);
+    transition: all .3s;
+    cursor: pointer;
+    font-size: 20px;
+}
+#me a:hover {
+    background: var(--letter);
+    color: var(--back);
+    text-decoration: underline;
+}
+#me a:active {
+    border: 2px solid var(--back);
+}
+#me h2 {
+    background: none;
+}
+/**Footer**/
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 10vh;
+    width: 100%;
+    background: var(--back);
+    z-index: 2;
+}
+footer > a,
+footer > a > img {
+    width: 100px;
+    height: 100px;
+    margin-inline: 2vw;
+    transition: all .3s ease;
+}
+footer > p {
+    font-size: 15px;
+    width: 50vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer a {
+    text-decoration: none;
+    transition: color .3s;
+}
+footer a:hover {
+    color: var(--letter);
+}
+.vl {
+    display: inline-block;
+    border-left: 1px solid white;
+    height: 20px;
+    margin-inline: 15px;
+}
+.vl.big {
+    height: 7.5rem;
+    border-left: 3px solid white;
+}
+#year {
+    margin-inline: 5px;
+}
+@media screen and (max-width:1500px) {
+    #email-form > form {
+        width: 50%;
+    } 
+}
+@media screen and (max-width:1150px) {
+    .inner-contact-cards, #page-code > .row {
+        flex-direction: column;
+    }
+    #email-form {
+        flex-direction: column;
+        width: 100%;
+    }
+    #email-form form {
+        width: 80%;
+    }
+
+}
+@media screen and (max-width: 1020px) {
+    footer {
+        flex-direction: column-reverse;
+    }
+    footer * {
+        margin-block: 2vh;
+    }
+}
+@media screen and (max-width: 775px) { 
+    footer > p {
+        width: 75%;
+    } 
+}
+@media screen and (max-width: 530px) {
+    .card {
+        width: 340px;
+        aspect-ratio: 1/1;
+    }
+    .card-subtitle {
+        font-size: 75%;
+    }
+}
+@media screen and (max-width: 445px) {  
+    footer p {
+        width: 95%;
+    }
+}
+@media screen and (min-width:1920px) {
+    #me {
+        background-size: cover;
+    }
+}

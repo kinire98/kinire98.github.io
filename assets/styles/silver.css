@@ -1,0 +1,472 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+:root {
+    --letter: #302455;
+    --back: #b2b2b2;
+    --transparent-white: rgba(255,255,255, .5);
+    --letter-dif: #FFCA5F66;
+    --black: rgba(0,0,0,.75);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: 'Poppins', sans-serif;
+    color: var(--letter);
+}
+html {
+    scrollbar-color: var(--letter) var(--back);
+    overflow-x: hidden;
+    min-height: 100%;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    background: var(--back);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--letter);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--letter-dif);
+}
+body {
+    background: var(--back);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100%;
+    font-size: 25px;
+    overflow-x: hidden;
+    color: var(--letter);
+    background-size: cover;
+}
+i {
+    color: var(--letter);
+    font-size: 2.5rem;
+    display: inline-block;
+    height: 2.5rem;
+    cursor: pointer;
+    transition: transform .3s;
+}
+img {
+    height: 2.5rem;
+    transition: transform .3s;
+}
+hr {
+    width: 100%;
+}
+a {
+    text-decoration: none;
+}
+abbr {
+    cursor: pointer;
+}
+a:hover > i, a:hover > img {
+    transform: scale(1.08, 1.08);
+    cursor: pointer;
+}
+.vl {
+    display: inline-block;
+    border-left: 1px solid white;
+    height: 20px;
+    margin-inline: 15px;
+}
+.vl.big {
+    height: 200px;
+    border-left: 3px solid white;
+}
+.black {
+    background: rgba(0, 0, 0, .5);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+}
+/**Title**/
+#title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    background: white;
+    background-image: radial-gradient(var(--back) 3px, transparent 0);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+}
+#title * {
+    text-align: center;
+    background: var(--back);
+    padding: 1rem;
+    width: 35%;
+}
+/**Characteristics**/
+#char {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 80vh;
+    padding-block: 5vh;
+    background: var(--back);
+    background-size: cover;
+}
+#char > .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+#char > .row > div {
+    width: 35%;
+    margin-inline: 5vw;
+}
+#char > .row > div > p {
+    margin-top: 3vh;
+}
+#char h3 {
+    display: inline;
+}
+/**extra features**/
+#extra-features {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    min-height: 75vh;
+    width: 100%;
+}
+#extra-features > .back-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    top: 0;
+    min-height: 120.5vh;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+#extra-features > .back-img > * {
+    position: relative;
+    margin-block: 5vh;
+    padding: 3rem;
+}
+#extra-features > .back-img > a {
+    background: var(--back);
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border-radius: 2rem;
+    border: 2px solid var(--back);
+    transition: all .3s;
+}
+#extra-features > .back-img > a:hover {
+    background: var(--letter);
+    color: var(--back);
+    text-decoration: underline;
+}
+#extra-features > .back-img > a:active {
+    border: 2px solid var(--back);
+    background: var(--back);
+    color: var(--letter);
+}
+#left {
+    background-image: url('../img/desing.jpg');
+    background-attachment: fixed;
+    background-size: 150%;
+    background-position: -400px -200px;
+    /* background-size: cover; */
+}
+#extra-features > #center {
+    background-image: url('../img/relaxed-man.jpg');
+    background-size: 100%;
+    background-size: cover;
+    background-position: -100px;
+}
+#extra-features > #right {
+    background-image: url('../img/codecode.jpg');
+    background-size: cover;
+    background-position: 500px -150px;
+    background-attachment: fixed;
+}
+div.back-img > p, div.back-img > h3 {
+    color: #fff;
+}
+#extra-features > .back-img > .black {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    background: var(--black);
+    z-index: 0;
+    margin-block: 0vh;
+}
+ #extra-features > .back-img > .yellow {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    background: var(--letter-dif);   
+    margin-block: 0vh;
+}
+/**About me**/
+#me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    min-height: 25vh;
+    z-index: 0;
+    background-image: url('../img/myDesktop.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    padding: 5vh;
+}
+#me > #column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 25vh;
+    z-index: 1;
+}
+#me p, #me h2 {
+    color: white;
+}
+#me a {
+    margin-block: 2vh;
+    background: var(--back);
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border-radius: 2rem;
+    color: var(--letter);
+    border: 2px solid var(--letter);
+    transition: all .3s;
+    cursor: pointer;
+    font-size: 20px;
+}
+#me a:hover {
+    background: var(--letter);
+    color: var(--back);
+    text-decoration: underline;
+}
+#me a:active {
+    border: 2px solid var(--back);
+}
+/**Contact**/
+#contact {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 20vh;
+    margin-inline: 7.5vh;
+    background: white;
+    background-image: radial-gradient(var(--back) 3px, transparent 0);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+}
+#contact > a {
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border-radius: 2rem;
+    font-size: 20px;
+    background: var(--back);
+    border: 2px solid var(--letter);
+    color: var(--letter);
+    cursor: pointer;
+    transition: all .125s;
+    text-decoration: none;
+}
+#contact  a:hover {
+    background: var(--letter);
+    color: var(--back);
+    text-decoration: underline;
+}
+#contact  a:active {
+    border: 2px solid var(--back);
+    background: var(--letter);
+    color: var(--back);
+}
+#contact > p {
+    background: var(--back);
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border-radius: 2rem;
+}
+/**Footer**/
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 10vh;
+    width: 100%;
+    background: var(--back);
+    background-size: cover;
+}
+footer > a > img {
+    width: 100px;
+    height: 100px;
+    margin-inline: 2vw;
+    transition: all .3s ease;
+}
+footer > p {
+    font-size: 15px;
+    width: 50vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer a {
+    text-decoration: none;
+    transition: color .3s;
+}
+footer a:hover {
+    color: white;
+}
+#year {
+    margin-inline: 5px;
+}
+@media screen and (max-width: 1030px) {
+    #char > .row {
+        padding-block: 5vh;
+        flex-direction: column;
+    }
+    #char > .row > div {
+        width: 85%;
+        padding-inline: 5vw;
+        margin-block: 5vh;
+    }
+    .vl.big {
+        height: 0;
+        width: 75%;
+        border-bottom: 3px solid white;
+    }
+}
+@media screen and (max-width: 1020px) {
+    footer {
+        flex-direction: column-reverse;
+    }
+    footer * {
+        margin-block: 2vh;
+    }
+}
+@media screen and (max-width: 885px) {
+    #extra-features > .back-img {
+        min-height: 130vh;
+    }   
+}
+@media screen and (max-width: 845px) {
+    #title * {
+        width: 50%;
+    }
+    #left {
+        background-position: -400px -0px;
+    }
+}
+@media screen and (max-width: 775px) {
+    #extra-features {
+        flex-direction: column;
+    }
+    #extra-features > .back-img {
+        min-height: 95vh;
+    }
+    #extra-features > #right {
+        background-position: -100px ;
+    }
+    #extra-features > #center {
+        background-size: 135%;
+        background-position: 0px 0px;
+    }
+    #extra-features > #left {
+        background-size: 250%;
+        background-position: 0px 350px;
+    }
+    footer > p {
+        width: 75%;
+    }
+}
+@media screen and (max-width: 600px) {
+    #title * {
+        width: 75%;
+    }
+    #contact > p, #contact > a {
+        font-size: 15px;
+        padding-inline: 1rem;
+    }
+}
+@media screen and (max-width: 533px) {
+    #extra-features > #left {
+        background-size: 300%;
+        background-position: -50px 0px;
+    }
+}
+@media screen and (max-width: 510px){
+    #contact > p, #contact > a {
+        font-size: 13.5px;
+    }
+}
+@media screen and (max-width: 445px) {  
+    footer p {
+        width: 95%;
+    }
+    #contact {
+        flex-direction: column;
+    }
+    #contact > p, #contact > a {
+        font-size: 15px;
+    }
+    #extra-features > #left {
+        background-size: 350%;
+    }
+    #extra-features > #center {
+        background-size: 150%;
+    }
+}
+@media screen and (max-width: 400px) {
+    #title * {
+        width: 90%;
+    }
+    #extra-features > #center {
+        background-size: 150%;
+        background-position: 0px 0px;
+    }
+}
+@media screen and (max-width: 368px) {
+    #extra-features > #left {
+        background-size: 350%;
+        background-position: -50px 0px;
+    }
+}
+@media screen and (min-width:1920px) {
+    #me {
+        background-size: cover;
+    }
+    #extra-features > #center {
+        background-size: contain;
+    }
+}
+@media screen and (min-width: 1320px) and (max-height: 652px) {
+    #extra-features > #center {
+        background-size: 1500px;
+    }
+}
+@media screen and (min-width:1800px) {
+    #extra-features > #center {
+        background-size: 1500px;
+    }
+}

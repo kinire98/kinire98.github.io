@@ -1,0 +1,25 @@
+.reveal  {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: transform 1.5s, opacity 1.5s ease;
+}
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+#contact > a.reveal {
+    transition: all 1s ease;
+}
+.compare.reveal#bronze {
+    transition: all 3s ease;
+}
+.compare.reveal#silver {
+    transition: all 2s ease;
+}
+.compare.reveal#gold {
+    transition: all 1s ease;
+}
+#contact > button.reveal.button {
+    transition: all 1s ease;
+}

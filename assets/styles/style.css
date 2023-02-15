@@ -1,0 +1,34 @@
+:root {
+    --letter: #FFCA5F;
+    --back: #302455;
+    --transparent-white: rgba(255,255,255, .35);
+    --card-color: rgb(23,23,23);
+    --letter-dif: #FFCA5Faa;
+    --black: rgba(0,0,0,.5);
+}
+/* width */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: var(--back);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--letter);
+    border-radius: 1rem;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--letter-dif);
+}
+html {
+    scrollbar-color: var(--letter) var(--back);
+}
+body {
+    background: var(--back);
+}

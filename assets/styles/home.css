@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+:root {
+    --letter: #FFCA5F;
+    --back: #302455;
+    --transparent-white: rgba(255,255,255, .35);
+    --card-color: rgb(23,23,23);
+    --letter-dif: #FFCA5Faa;
+    --black: rgba(0,0,0,.5);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+}
+html {overflow: hidden; margin: 0; padding: 0;}
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--back);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 150px;
+    line-height: .5em;
+    overflow: hidden;
+    position: relative;
+}
+a {
+    z-index: 9999999;
+}
+#centered {
+    position: relative;
+    right: -10vw;
+    z-index: 2;
+}
+
+strong {
+    z-index: 2;
+    color:var(--letter);
+    font-weight: 9000;
+}
+#third {
+    font-size: 50%;
+}
+
+#bottom-left {
+    position: absolute; 
+    right: 1vw;
+    bottom: 1vh;
+    font-size: 25%;
+    background: var(--letter);
+    padding-inline: 5vw;
+    border-radius: 5vw;
+    color: var(--back);
+    text-decoration: none;
+    display: block;
+}
+
+
+
+#bottom-left:hover {
+    text-decoration: underline;
+}
+
+img#logo {
+    position: absolute;
+    right: -10vw;
+    z-index: 0;
+    width: 600px;
+    transform: rotate(-5deg);
+}
+.language-change {
+    position: fixed;
+    left: 2pc;
+    bottom: .5pc;
+    font-size: 4rem !important;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 99999999999;
+    opacity: 0;
+    visibility: hidden;
+    animation: show 1.5s 4s ease-in forwards;
+}
+.language-change i {
+    position: relative;
+    bottom: 30px;
+    left: 5px;
+    color: var(--letter);
+    width: 1.75rem;
+    height: 1.75rem;
+    font-size: 1.75rem;
+    transform: rotate(45deg);
+}
+.language-change:hover i {
+    transform: rotate(45deg);
+}
+.language-change .little {
+    font-size: 1.5rem !important;
+    position: relative;
+    bottom: 50px;
+    left: 5px;
+}
+.language-change .big {
+    position: relative;
+    top: 15px;
+    font-size: 4rem !important;
+}
+@keyframes show {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+    }
+    100% {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+/**Animations**/
+
+#hi, #hand, #Im, #name, #secondName, #exclamation, #web, #dev, #logo, #arrows {
+    opacity: 0;
+    position: relative;
+}
+#hi {animation: hi .2s forwards cubic-bezier(0.87, 0, 0.04, 1);}
+#exclamation {animation: hi .2s .21s forwards cubic-bezier(0.87, 0, 0.04, 1);}
+#hand {animation: hand .2s .45s forwards cubic-bezier(0.87, 0, 0.04, 1);}
+
+@keyframes hi { 
+    0% {
+        opacity: 1;
+        bottom: 150px;
+    }
+    100% {
+        opacity: 1;
+        bottom: 0px;
+    }
+}
+@keyframes hand { 
+    0% {
+        opacity: 1;
+        left: 150px;
+    } 
+    100% {
+        opacity: 1;
+        left: 0px;
+    }
+}
+#Im {animation: Im .2s 1s forwards cubic-bezier(0.87, 0, 0.04, 1);}
+#name {animation: name .2s 1.5s forwards cubic-bezier(0.87, 0, 0.04, 1);}
+#secondName {animation: name .2s 1.7s forwards cubic-bezier(0.87, 0, 0.04, 1);}
+@keyframes Im {
+    0% {
+        opacity: 1;
+        right: 150px;
+    }
+    100% {
+        opacity: 1;
+        right: 0px;
+    }
+}
+@keyframes name {
+    0% {
+        opacity: 1;
+        top: 150px;
+    }
+    100% {
+        opacity: 1;
+        top: 0px;
+    }
+}
+#web {animation: web 1s 2.25s forwards cubic-bezier(0.87, 0, 0.04, 1);}
+#dev {animation: dev 1s 2.3s forwards cubic-bezier(0.87, 0, 0.04, 1);}
+
+@keyframes web {
+    0% {
+        opacity: 0;
+        top: 150px;
+        left: 150px;
+    }
+    100% {
+        opacity: 1;
+        top: -20px;
+        left: 0px;
+    }
+}
+@keyframes dev {
+    0% {
+        opacity: 0;
+        top: 150px;
+        right: 150px;
+    }
+    100% {
+        opacity: 1;
+        top: -20px;
+        right: 0px;
+    }
+}
+#logo {animation: logo .5s 3.5s forwards linear;}
+@keyframes logo {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#bottom-left {animation: bottom-left 1.5s 3.7s forwards linear; opacity: 0;}
+@keyframes bottom-left {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+span#arrows {animation: arrows 2s backwards infinite ease; color: var(--back); opacity: 1; top: 2.5px;}
+span#arrows i {color: var(--back);}
+@keyframes arrows {
+    0% {left: 5px;}
+    15% {left: 25px;}
+    50% {left: 25px;}
+    70% {left: 5px;}
+    100% {left: 5px;}
+}
+@media screen and (max-width:1535px) {
+    #block {
+        display: block;
+        margin-block-start: 100px;
+    }
+}
+@media screen and (max-width:1275px) {
+    img#logo {
+        bottom:500px;
+        width: 500px;
+    } 
+}
+@media screen and (max-width: 920px) {
+    #third {
+        position: relative;
+        top: -50px;
+    }
+}
+@media screen and (max-width:850px) {
+    #bottom-left {
+        display: flex;
+        justify-content: center;
+        left: 15vw;
+        right: 15vw;
+    }
+    
+}
+@media screen and (max-height: 800px) {
+    span {
+        font-size: 75% !important;
+    }
+    img#logo {
+        width: 400px;
+        bottom: 300px;
+    }
+    span#arrows {
+        font-size: 100% !important;
+    }
+    #dev {
+        display: inline;
+    }
+    #bottom-left {
+        bottom: 10vh;
+    }
+    #centered {
+        left: 1vw;
+    }
+}
+@media screen and (max-width:775px) {
+    #name, #secondName {
+        display: block;
+        margin-block-start: 25px;
+    }
+    #block {
+        display: block;
+        margin-block-start: 25px;
+    }
+    img#logo {
+        bottom: 400px;
+        width: 400px;
+    }
+    span {
+        font-size: 50% !important;
+    }
+    #third {
+        position: relative;
+        top: -75px;
+    }
+}
+@media screen and (max-width: 660px) {
+    img#logo {
+        width: 300px;
+        bottom: 250px;
+    } 
+    span {
+        font-size: 50% !important;
+    }
+    span#arrows {
+        font-size: 100% !important;
+    } 
+    #name, #secondName, #block {
+        margin-block: 0;
+    }
+    #third {
+        position: relative;
+        top: -75px;
+    }
+    .language-change {
+        top: 1pc;
+        right: 2pc;
+        bottom: auto;
+        left: auto;
+    }
+}
+@media screen and (max-width:501px) {
+    #bottom-left {
+        font-size: 17.5%;
+    }
+    img#logo {
+        width: 250px;
+        bottom: 275px;
+    }
+    #third {
+        font-size: 50%;
+    }
+}
+@media screen and (max-width: 430px) {
+    img#logo {
+        width: 200px;
+        bottom: 300px;
+    }
+}

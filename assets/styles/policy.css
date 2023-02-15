@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+:root {
+    --letter: #FFCA5F;
+    --back: #302455;
+    --transparent-white: rgba(255,255,255, .35);
+    --card-color: rgb(23,23,23);
+    --letter-dif: #FFCA5F99;
+    --black: rgba(0,0,0,.5);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    z-index: 999;
+}
+html {
+    scrollbar-color: var(--letter) var(--back);
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    background: var(--back);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--letter);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--letter-dif);
+}
+body {
+    background: var(--back);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 20px;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    transition: all .3s;
+}
+a:hover {
+    color: var(--letter);
+}
+hr {
+    width: 100%;
+    margin-block-start: 3rem;
+}
+
+h1 {
+    padding-block: 5rem;
+    margin-block-end: 5rem;
+    width: 100%;
+    text-align: center;
+    background: black;
+    text-transform: uppercase;
+}
+h2 {
+    padding: 4rem;
+}
+p {
+    padding: 4rem;
+}
+ul {
+    list-style-type: disc;
+    padding-inline: 4rem;
+}
+.vl {
+    display: inline-block;
+    border-left: 1px solid white;
+    height: 20px;
+    margin-inline: 15px;
+}
+.vl.big {
+    height: 7.5rem;
+    border-left: 3px solid white;
+}
+/**Footer**/
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 10vh;
+    width: 100%;
+}
+footer > a > img {
+    width: 100px;
+    height: 100px;
+    margin-inline: 2vw;
+    transition: all .3s ease;
+}
+footer > p {
+    font-size: 15px;
+    width: 50vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer a {
+    text-decoration: none;
+    transition: color .3s;
+}
+footer a:hover {
+    color: var(--letter);
+}
+footer > a:hover > img {transform: scale(1.08, 1.08);}
+#year {
+    margin-inline: 5px;
+}
+@media screen and (max-width: 1020px) {
+    footer {
+        flex-direction: column-reverse;
+    }
+    footer * {
+        margin-block: 2vh;
+    }
+}
+@media screen and (max-width: 775px) { 
+    footer > p {
+        width: 75%;
+    }
+}
+@media screen and (max-width: 445px) {  
+    footer p {
+        width: 95%;
+    } 
+}

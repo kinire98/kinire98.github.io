@@ -1,0 +1,795 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+:root {
+    --letter: #FFCA5F;
+    --back: #302455;
+    --transparent-white: rgba(255,255,255, .35);
+    --card-color: rgb(23,23,23);
+    --letter-dif: #FFCA5F99;
+    --black: rgba(0,0,0,.5);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    z-index: 999;
+}
+html {
+    scrollbar-color: var(--letter) var(--back);
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    background: var(--back);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--letter);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--letter-dif);
+}
+body {
+    background: var(--back);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 35px;
+    overflow-x: hidden;
+}
+h2 {
+    margin-block: 5%;
+}
+a {
+    text-decoration: none;
+}
+hr {
+    width: 100%;
+}
+a:hover > i, a:hover > img {
+    transform: scale(1.08, 1.08);
+    cursor: pointer;
+}
+.section {
+    margin-block: 10vh;
+}
+.row, .column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.row {
+    flex-direction: row;
+}
+.column {
+    flex-direction: column;
+}
+.black {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    background: var(--black);
+    z-index: 0;
+    margin-block: 0vh;
+}
+.vl {
+    display: inline-block;
+    border-left: 1px solid white;
+    height: 20px;
+    margin-inline: 15px;
+}
+.vl.big {
+    height: 7.5rem;
+    border-left: 3px solid white;
+}
+/**title**/
+#title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    background: var(--transparent-white);
+    background-image: url('../img/myDesktopGrayScale.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    margin-block-end: 0;
+    z-index: 1;
+}
+#title > h1 {
+    background: var(--back);
+    padding: 2%;
+    border-radius: 2rem;
+    z-index: 1;
+}
+#back {
+    position: fixed;
+    background: var(--letter-dif);
+    border-radius: 8em;
+    width: 50em;
+    height: 20em;
+    transform: rotate(-60deg);
+    right: -25%;
+    top: -50%;
+    z-index: 0;
+}
+#points {
+    position: fixed;
+    background-image: radial-gradient(var(--back) 3px, transparent 0);
+    background-size: 40px 40px;
+    height: 35em;
+    width: 15em;
+    transform: rotate(-45deg);
+    top: -15%;
+    right: -15%;
+    border-radius: 14em;
+}
+/** who am I div **/
+
+#who-am-I {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+    padding-block: 5vh;
+    background: var(--letter);
+    color: var(--back);
+    margin-block: 0;
+    background-image: url('../img/me-at-the-beach-2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    /* background-position: 0 -250px; */
+}
+#who-am-I * {
+    color: var(--back);
+}
+#who-am-I > h2 {
+    background: var(--letter);
+    padding: 1rem;
+    border-radius: 3rem;
+}
+#who-am-I > .internals {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+    width: 100%;
+}
+.internals > ul {
+    list-style-type: none;
+    margin-inline: 2.5%;
+    width: auto;
+    display: inline;
+    border-radius: 6rem;
+    background: var(--letter);
+    padding: 2rem;
+}
+.internals > ul > li {
+    margin-block: 35px;
+}
+.internals  span {
+    display: inline-block;
+    font-size: calc(1vw + 15px);
+}
+
+/*Skills div*/
+#skills {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    min-height: 65vh;
+    background: var(--back);
+    margin-block: 0;
+    padding-block: 10vh;
+}
+
+
+/* #skills > h2:hover::before {
+    content: "Hover your mouse over the titles ;)";
+} */
+#skills > .row  {
+    align-items: flex-start;
+    width: 100%;
+}
+#skills > .row > div {
+    width: 28.33%;
+    margin-inline: 5%;
+}
+.fancy-button {
+    display: flex;
+    align-items: center;
+    background: transparent;
+    position: relative;
+    padding-block: .5rem;
+    margin-block: .5rem;
+    border-radius: 2rem;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--letter);
+    border: 3px solid var(--letter);
+    transition: background .2s ease-out, color .2s ease-out, border .2s ease-out;   
+}
+.fancy-button h3 {
+    margin-inline: 5rem;
+}
+.fancy-button:hover {
+    background: var(--letter);
+    color: var(--back);
+    border: 3px solid var(--back);
+}
+.fancy-button:active {
+    color: var(--letter);
+    border: 3px solid var(--letter);
+    background: var(--back);
+}
+#lines {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    width: 100%;
+    margin-inline: 0;
+}
+#lines * {
+    margin-inline: 0;
+}
+.fancy-button:hover > #lines > * > .lines {
+    width: 35px;
+    display: block;
+    position: absolute; 
+    background: var(--letter);
+    border-radius: 2.5px;
+    transform: rotate(var(--angle));
+    height: 7.5px;
+    animation: var(--animation) .3s forwards ease-in;
+}
+.before::before {
+    content: var(--text);
+}
+@keyframes left {
+    0% {
+        width: 0px;
+        transform: translate(0px);
+    }
+    50% {
+        width: 50px;
+        transform: translate(-75px);
+    }
+    100% {
+        width: 0px;
+        transform: translate(-145px);
+    }
+}
+@keyframes top-left {
+    0% {
+        width: 0px;
+        bottom: 25px;
+        left: 0px;
+        transform: rotate(var(--angle));
+    }
+    50% {
+        width: 35px;
+        left: -75px;
+        transform: rotate(var(--angle));
+    }
+    100% {
+        width: 0px;
+        bottom: 100px;
+        left: -125px;
+        transform: rotate(var(--angle));
+    }
+}
+@keyframes bottom-left {
+    0% {
+        width: 0px;
+        top: 25px;
+        left: 0px;
+        transform: rotate(var(--angle));
+    }
+    50% {
+        width: 35px;
+        left: -75px;
+        transform: rotate(var(--angle));
+    }
+    100% {
+        width: 0px;
+        top: 100px;
+        left: -125px;
+        transform: rotate(var(--angle));
+    }
+}
+@keyframes right {
+    0% {
+        width: 0px;
+        transform: translate(0px);
+    }
+    50% {
+        width: 50px;
+        transform: translate(75px);
+    }
+    100% {
+        width: 0px;
+        transform: translate(145px);
+    }
+}
+@keyframes bottom-right {
+    0% {
+        width: 0px;
+        top: 25px;
+        right: 0px;
+        transform: rotate(var(--angle));
+    }
+    50% {
+        width: 35px;
+        right: -75px;
+        transform: rotate(var(--angle));
+    }
+    100% {
+        width: 0px;
+        top: 100px;
+        right: -125px;
+        transform: rotate(var(--angle));
+    }
+}
+@keyframes top-right {
+    0% {
+        width: 0px;
+        bottom: 25px;
+        right: 0px;
+        transform: rotate(var(--angle));
+    }
+    50% {
+        width: 35px;
+        right: -75px;
+        transform: rotate(var(--angle));
+    }
+    100% {
+        width: 0px;
+        bottom: 100px;
+        right: -125px;
+        transform: rotate(var(--angle));
+    }
+}
+
+
+
+#movement {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    /* border: 3px solid var(--letter); */
+    padding: .5rem;
+    padding-inline: 1rem;
+    margin-block: 1rem;
+}
+#movement > i {
+    position: relative;
+    left: 85%;
+    z-index: 1;
+    font-size: 40px;
+    height: 100%;
+}
+#movement:hover > i {
+    animation: move-truck 2s ease-in-out;
+}
+#movement > h3 {
+    position: absolute;
+ 
+    z-index: 0;
+    text-transform: uppercase;
+    overflow: hidden;
+}
+#movement:hover > h3 {
+    animation: text-hide 2s ease-in-out;
+}
+@keyframes text-hide {
+    0% {
+        width: 100%;
+        cursor: default;
+    }
+    25% {
+        width: 0%;
+    }
+    80% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+        cursor: auto;
+    }
+}
+@keyframes move-truck {
+    0% {
+        left: 85%;
+        opacity: 1;
+        visibility: visible;
+        cursor: default;
+    }
+    25% {
+        left: 0%;
+    }
+    30% {
+        left: 0%;
+    }
+    49% {
+        opacity: 1;
+        visibility: visible
+    }
+    50% {
+        left: 135%;
+        opacity: 0;
+        visibility: hidden;
+    }
+    51% {
+        left: -100%;
+        opacity: 0;
+        visibility: hidden;
+    }
+    60% {
+        left: -100%;
+        opacity: 1;
+        visibility: visible
+    }
+    100% {
+        left: 85%;
+        cursor: auto;
+    }
+}
+#original {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#original > h3 {
+    display: inline;
+}
+
+#lightbulb {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-block: 1rem;
+}
+.lightbulb {
+    transition: all .3s;
+    font-size: 50px;
+}
+#lightbulb:hover .fa-duotone.fa-lightbulb.lightbulb {
+    color: var(--letter);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+}
+#lightbulb:hover .fa-duotone.fa-lightbulb.lightbulb > .lines {
+    width: 15px;
+    height: 7.5px;
+    border-radius: 5px;
+    background: var(--letter);
+    position: absolute;
+    transform: rotate(var(--rotation));
+    top: var(--top);
+    left: var(--left);
+    transition: all .3s;
+}
+/**Compromise**/
+#compromise {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    padding: 5rem;
+    margin-block: 0;
+    background-image: url('../img/pueblos-de-leon.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+#compromise > h2 {
+    margin-inline: 2rem;
+}
+
+#compromise > * {
+    z-index: 1;
+}
+#compromise > p {
+    width: 90%;
+}
+#know-more {
+    display: inline-block;
+    margin-left: 15%;
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    margin-inline: 5vw;
+    border-radius: 2rem;
+    background: var(--back);
+    border: 2px solid var(--letter);
+    color: var(--letter);
+    transition: all .3s;
+}
+#know-more:hover {
+    background: var(--letter);
+    color: var(--back);
+    text-decoration: underline;
+}
+#know-more:active {
+    border: 2px solid var(--back);
+    background: var(--letter);
+    color: var(--back);
+}
+/**Values div**/
+#values {
+    display: flex;
+    align-items:  center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    width: 100%;
+    margin-block: 0;
+    background: var(--back);
+    padding-block: 10vh;
+}
+.margin {
+    margin-left: 50px;
+}
+#values > h2, #values > ul {
+    position: relative;
+    background: var(--back);
+    z-index: inherit;
+    padding: 1rem;
+}
+#values > ul {
+    list-style-type: none;
+}
+
+
+#values > .dots {
+    position: absolute;
+    width: 75%;
+    height: 175%;
+    left: -65%;
+    top: -25%;
+    background-image: radial-gradient(var(--letter) 3px, transparent 0px);
+    background-size: 40px 40px;
+    z-index: 0;
+    transform: rotate(35deg);
+    border-radius: 36%;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+#values > .back {
+    position: absolute;
+    width: 125%;
+    height: 75%;
+    left: -25%;
+    top: -100%;
+    background: var(--transparent-white);
+    transform: rotate(-35deg);
+    border-radius: 36%;
+    z-index: 0;
+}
+/**Contact**/
+#contact {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    min-height: 20vh;
+    margin-inline: 7.5vh;
+    background: var(--transparent-white);
+    background-image: radial-gradient(var(--back) 3px, transparent 0);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+    z-index: 3;
+    margin-block: 0;
+}
+#contact > a {
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border-radius: 2rem;
+    font-size: 20px;
+    background: var(--back);
+    border: 2px solid var(--letter);
+    color: var(--letter);
+    cursor: pointer;
+    transition: all .125s;
+    text-decoration: none;
+}
+#contact > a:hover {
+    background: var(--letter);
+    color: var(--back);
+    text-decoration: underline;
+}
+#contact > a:active {
+    border: 2px solid var(--back);
+    background: var(--letter);
+    color: var(--back);
+}
+ 
+#contact > h5 {
+    background: var(--back);
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border-radius: 2rem;
+}
+/**Footer**/
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 10vh;
+    width: 100%;
+    z-index: 5;
+    position: relative;
+}
+footer > a > img {
+    width: 100px;
+    height: 100px;
+    margin-inline: 2vw;
+    transition: all .3s ease;
+}
+footer > p {
+    font-size: 15px;
+    width: 50vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer a {
+    text-decoration: none;
+    transition: color .3s;
+}
+footer a:hover {
+    color: var(--letter);
+}
+#year {
+    margin-inline: 5px;
+}
+@media screen and (max-width:1350px) {
+    #who-am-I {
+        background-position: 0px 0px;
+    }      
+}
+@media screen and (max-width: 1300px) {
+    body {
+        font-size: 20px;
+    }
+    #skills {
+        width: 100%;
+        font-size: 25px;
+    }
+    #skills > .row {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    #skills > .row > div {
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    #movement {
+        width: 100%;
+    }
+    #skills > .row > div p {
+        text-align: center;
+        width: 100%;
+    } 
+    .fancy-button {
+        padding-block: .5rem;
+        margin-block: .5rem;
+        border-radius: 2rem;
+        font-size: 1.5rem;
+    }
+    .fancy-button h3 {
+        margin-inline: 2.5rem;
+    }
+    .fancy-button:active > #lines > * > .lines {
+        width: 35px;
+        display: block;
+        position: absolute; 
+        background: var(--letter);
+        border-radius: 2.5px;
+        transform: rotate(var(--angle));
+        height: 7.5px;
+        animation: var(--animation) .3s forwards ease-in;
+    }
+    .fancy-button:active {
+        background: var(--letter);
+        color: var(--back);
+        border: 3px solid var(--back);
+    }
+    .before::before {
+        content: var(--mobile);
+    }
+    #movement:active > i {
+        animation: move-truck 2s ease-in-out;
+    }
+    #movement:active > h3 {
+        animation: text-hide 2s ease-in-out;
+    }
+    #lightbulb:active .fa-duotone.fa-lightbulb.lightbulb {
+        color: var(--letter);
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        position: relative;
+    }
+    #lightbulb:active .fa-duotone.fa-lightbulb.lightbulb > .lines {
+        width: 15px;
+        height: 7.5px;
+        border-radius: 5px;
+        background: var(--letter);
+        position: absolute;
+        transform: rotate(var(--rotation));
+        top: var(--top);
+        left: var(--left);
+        transition: all .3s;
+    }
+}
+@media screen and (max-width: 1020px) {
+    footer {
+        flex-direction: column-reverse;
+    }
+    footer * {
+        margin-block: 2vh;
+    }
+}
+@media screen and (max-width: 775px) { 
+    footer > p {
+        width: 75%;
+    } 
+}
+@media screen and (max-width: 600px) { 
+    #contact > p, #contact > a {
+        font-size: 15px;
+        padding-inline: 1rem;
+    }
+}
+@media screen and (max-width: 510px){
+    #contact > p, #contact > a {
+        font-size: 12.5px;
+    }
+    #who-am-I {
+        background-position: -100px 0px;
+    }
+}
+@media screen and (max-width: 445px) {  
+    #skills > .row > div {
+        width: 80%;
+    }
+    #contact {
+        flex-direction: column;
+    }
+    #contact > p, #contact > a {
+        font-size: 15px;
+    }
+    footer p {
+        width: 95%;
+    }
+}

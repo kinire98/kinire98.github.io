@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact me!</title>
+    <link rel="stylesheet" href="../../assets/styles/contact.css">
+    <link rel="stylesheet" href="../../assets/fontawesome/css/pro.min.css">
+    <link rel="stylesheet" href="../../assets/styles/reveal.css">
+    <link rel="stylesheet" href="../../assets/styles/header.css">
+    <link rel="stylesheet" href="../../assets/styles/hamburgers.min.css">
+    <link rel="shortcut icon" href="../../assets/img/mainLogo.png">
+</head>
+<body>
+    <header style="--back:#302455f0;">
+        <nav>
+            <div>
+                <a href="../"><img src="../../assets/img/mainLogo.png" alt="Main logo"></a>
+                <button class="hamburger hamburger--squeeze" type="button">
+                  <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
+                </button>
+            </div>
+            <ul>
+                <li><a href="../services/"><i class="fa-duotone fa-code" aria-hidden="true"></i> <span>Services</span></a></li>
+                <li><a href="../bronze/"><i class="fa-duotone fa-coin" aria-hidden="true"></i> <span>Bronze web</span></a></li>
+                <li><a href="../silver/"><i class="fa-duotone fa-coins" aria-hidden="true"></i> <span>Silver web</span></a></li>
+                <li><a href="../gold/"><i class="fa-duotone fa-medal" aria-hidden="true"></i> <span>Gold web</span></a></li>
+                <li class="is-active"><a><i class="fa-duotone fa-phone" aria-hidden="true"></i> <span>Contact</span></a></li>
+                <li><a href="../about/"><i class="fa-duotone fa-address-card" aria-hidden="true"></i> <span>About</span></a></li>
+                <li><a href="../compromise/"><i class="fa-duotone fa-mountain-sun" aria-hidden="true"></i> <span>My compromise</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div id="title">
+        <h1 class="reveal">Interested?</h1> <br>
+        <h2 class="reveal">👇 How to contact me or see some of my work👇</h2>
+    </div>
+    <hr class="complete">
+    <div id="email-form">
+        <div class="back yellow-back"></div>
+        <div class="back blue-dots"></div>
+        <div class="card reveal" id="gmail" style="--border:#bb001b; --g1:#4285f4; --g2:#34a853; --g3:#fbbc05;">
+            <div class="card-content">
+                <h3 class="card-title">
+                    Mail
+                </h3>
+                <h4 class="card-subtitle" data-text="Send me an email!"></h4>
+            </div>
+            <i class="fa-duotone fa-envelope card-icon" aria-hidden=true></i>
+        </div>
+        <form id="email">
+            <fieldset class="reveal">
+                <legend>
+                    👇 Enter your data 👇
+                </legend>
+                <input type="text" name="name" placeholder="Write your name...  *" title="This field only admits uppercase, lowercase and blank spaces" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚú\s]+$" required>
+                <input type="text" name="enterprise" placeholder="Write the name of your bussiness..." title="This field only admits uppercase, lowercase and blank spaces" pattern="^[A-Za-zÑñÁáÉéÍíÓóÚú\s]+$"><br>
+                <input type="email" name="email" id="email" placeholder="Write your e-mail here... *" title="Write your e-mail" pattern="^[a-z0-9]+(\.[_a-z0-9]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,15})$" required>
+                <input type="text" name="_subject" id="subject" placeholder="Subject of the e-mail... *"
+                    pattern="^[A-Za-zÑñÁáÉéÍíÓóÚú\s]+$"><br>
+                <select name="type" id="type" aria-placeholder="Select an option">
+                    <option value="Nothing selected">Select an option</option>
+                    <option value="Bronze web page">Bronze web</option>
+                    <option value="Silver web page">Silver web</option>
+                    <option value="Gold web page">Gold web</option>
+                    <option value="Customer support">Customer support</option>
+                    <option value="Doubts">Questions and doubts</option>
+                </select>
+                <textarea type="text" name="comments" id="comments" placeholder="Write what you think or what you need...  *" pattern="^[\s\S]{1,1023}" title="Tu comentario no debe exceder los 1023 caracteres" cols="40" rows="5"  required></textarea><br>
+                <span><input type="checkbox" name="personal-data" id="personal-data"> <label for="personal-data">If you mark this you agree to our <a href="../data/" target="_blank">privacy policy</a></label></span>
+                <input type="submit" value="Send" name="submit" title="Send me an email"><br>
+
+
+                <input type="hidden" name="_subject" id="_subject" value="Reply to: "><br>
+
+                <img src="../../assets/svg/loader.svg" alt="Loading...">
+            </fieldset>
+        </form>
+    </div>
+    <div id="proffesionalism" class="cards-container">
+        <div class="yellow-dots back"></div>
+        <div class="white-back back"></div>
+        <h2 class="reveal">Hire me, check my previous experience or my conecctions</h2>
+        <div class="inner-contact-cards reveal" > 
+            <div class="card" style="--border:#006699; --g1:#00a0dcb0; --g2:#86888a; --g3:#caccce;" data-href="https://www.linkedin.com/in/iker-nieto-79985b232/">
+                <div class="card-content"data-href="https://www.linkedin.com/in/iker-nieto-79985b232/">
+                    <h3 class="card-title"data-href="https://www.linkedin.com/in/iker-nieto-79985b232/">
+                        LinkedIn
+                    </h3>
+                    <h4 class="card-subtitle" data-text="Here you can find my personal portfolio and professional conecctions"data-href="https://www.linkedin.com/in/iker-nieto-79985b232/">
+                        
+                    </h4>
+                </div>
+                <i class="fa-brands fa-linkedin card-icon" aria-hidden=true data-href="https://www.linkedin.com/in/iker-nieto-79985b232/"></i>
+            </div>  
+            <div class="card " style="--border:#9ccd92; --g1:#3a3c42; --g2:#a3a179; --g3:#749c43b0;" data-href="https://www.fiverr.com/kinire98">
+                <div class="card-content" data-href="https://www.fiverr.com/kinire98">
+                    <h3 class="card-title" data-href="https://www.fiverr.com/kinire98">
+                        Fiverr
+                    </h3>
+                    <h4 class="card-subtitle" data-text="You can also hire me here!" data-href="https://www.fiverr.com/kinire98">
+                       
+                    </h4>
+                </div>
+                <i class="fa-duotone fa-briefcase card-icon" aria-hidden=true data-href="https://www.fiverr.com/kinire98"></i>
+            </div>
+        </div>
+    </div>
+    <div id="updates"class="cards-container">
+        <h2 class="reveal">Check some updates</h2>
+        <div class="inner-contact-cards reveal">
+            <div class="card" style="--border:#feda77; --g1:#f58529b0; --g2:#dd2a7b; --g3:#8134af;" data-href="https://www.instagram.com/kinire98/">
+                <div class="card-content" data-href="https://www.instagram.com/kinire98/">
+                    <h3 class="card-title" data-href="https://www.instagram.com/kinire98/">
+                        Instagram
+                    </h3>
+                    <h4 class="card-subtitle" data-text="My journey in photos" data-href="https://www.instagram.com/kinire98/">
+                       
+                    </h4>
+                </div>
+                <i class="fa-brands fa-instagram card-icon" aria-hidden=true data-href="https://www.instagram.com/kinire98/"></i>
+            </div> 
+            <div class="card" style="--border:#55acee; --g1:#292f22; --g2:#55acee; --g3:#ffffffb0;" data-href="https://twitter.com/kinire98">
+                <div class="card-content" data-href="https://twitter.com/kinire98">
+                    <h3 class="card-title" data-href="https://twitter.com/kinire98">
+                        Twitter
+                    </h3>
+                    <h4 class="card-subtitle" data-text="News, updates and memes of the tech world." data-href="https://twitter.com/kinire98">
+                       
+                    </h4>
+                </div>
+                <i class="fa-brands fa-twitter card-icon" aria-hidden=true data-href="https://twitter.com/kinire98"></i>
+            </div>
+            
+            
+        </div>
+    </div>
+     
+    <div id="page-code"class="cards-container">
+        <h2 class="reveal">For pros</h2>
+        <div class="row reveal"> 
+            <div class="card" style="--border:#6e5494; --g1:#fafafab0; --g2:#333333; --g3:#6cc644;" data-href="https://github.com/kinire98/kinire.com">
+                <div class="card-content" data-href="https://github.com/kinire98/kinire.com">
+                    <h3 class="card-title" data-href="https://github.com/kinire98/kinire.com">
+                        This page
+                    </h3>
+                    <h4 class="card-subtitle" data-text="Check how this page was built!" data-href="https://github.com/kinire98/kinire.com">
+                        
+                    </h4>
+                </div>
+                <i class="fa-brands fa-github card-icon" aria-hidden=true data-href="https://github.com/kinire98/kinire.com"></i>
+            </div>           
+            <div class="card" style="--border:#6e5494; --g1:#4078c0; --g2:#c9520c; --g3:#f5f5f5b0;" data-href="https://github.com/kinire98">
+                <div class="card-content" data-href="https://github.com/kinire98">
+                    <h3 class="card-title" data-href="https://github.com/kinire98">
+                        Other projects
+                    </h3>
+                    <h4 class="card-subtitle" data-text='Check some of my other "projects"' data-href="https://github.com/kinire98">
+
+                    </h4>
+                </div>
+                <i class="fa-brands fa-github card-icon" aria-hidden=true data-href="https://github.com/kinire98"></i>
+            </div>
+        </div>           
+               
+    </div>
+    <div class="section" id="me">
+        <div class="black"></div>
+        <div id="column" class="reveal">
+            <h2>Who am I?</h2>
+            <p>
+                A developing lover, who wants small bussiness and entrepeneurs to make posible their bussiness idea. <br>
+                You'll discover, aside the low prices, professionalism, hard work and a close treatment <br>
+                Don't worry, I've got you
+            </p>
+            <a href="../about/">Discover more -></a>
+        </div>
+    </div>
+    <hr class="complete">
+    <footer>
+        <p>© <span id="year"> </span> Iker Nieto Garrido. All Rights reserved</p>
+        <a href="../"><img src="../../assets/img/mainLogo.png" alt="Main logo"></a>
+        <p>
+            <a href="../legal">Legal policy</a>
+            <span class="vl"></span>
+            <a href="../cookies/">Cookies policy</a>
+            <span class="vl"></span>
+            <a href="../data/">Privacy policy</a>
+        </p>
+    </footer>
+    <script src="../../assets/scripts/contact.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+:root {
+    --letter: #FFCA5F;
+    --back: #302455;
+    --transparent-white: rgba(255,255,255, .35);
+    --card-color: rgb(23,23,23);
+    --letter-dif: #FFCA5F99;
+    --black: rgba(0,0,0,.5);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: 'Poppins', sans-serif;
+    color: #fff;
+    z-index: 999;
+}
+html {
+    scrollbar-color: var(--letter) var(--back);
+    overflow-x: hidden;
+}
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    background: var(--back);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: var(--letter);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--letter-dif);
+}
+body {
+    background: var(--back);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 25px;
+    overflow-x: hidden;
+    padding-inline: 5vw;
+}
+h2 {
+    margin-block: 5%;
+}
+a {
+    text-decoration: none;
+}
+hr {
+    width: 100%;
+}
+a:hover > i, a:hover > img {
+    transform: scale(1.08, 1.08);
+    cursor: pointer;
+}
+.row, .column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.row {
+    flex-direction: row;
+}
+.column {
+    flex-direction: column;
+}
+.black {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0; 
+    right: 0;
+    background: var(--black);
+    z-index: 0;
+    margin-block: 0vh;
+}
+.vl {
+    display: inline-block;
+    border-left: 1px solid white;
+    height: 20px;
+    margin-inline: 15px;
+}
+.vl.big {
+    height: 7.5rem;
+    border-left: 3px solid white;
+}
+
+/**Title**/
+
+.start {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    background-size: cover;
+    background-attachment: fixed;
+    background-image: url('../img/pueblos-de-leon.jpg');
+    z-index: 1;
+}
+.start h1 {
+    z-index: inherit;
+    background: var(--back);
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border-radius: 2rem;
+    margin-inline: 3rem;
+}
+.start div.black {
+    z-index: 0;
+}
+/**Midddle**/
+.middle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100vw;
+    min-height: 50vh;
+    background-image: url('../img/Astorga-rescalada.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+div.middle > p {
+    padding: 5rem;
+    position: relative;
+    z-index: 1;
+}
+/**Map**/
+#about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100vw;
+    height: 65vh;
+    margin-block: 0;
+    background-image: url('../img/humedo.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+}
+#about * {
+    background-color: var(--back);
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    margin-inline: 5vw;
+    border-radius: 2rem;
+}
+#about > a {
+    padding-block: .5rem;
+    background: var(--letter);
+    color: var(--back);
+}
+/**Contact**/
+#contact {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    min-height: 20vh;
+    background: white;
+    background-image: radial-gradient(var(--back) 3px, transparent 0);
+    background-size: 40px 40px;
+    background-attachment: fixed;
+}
+#contact > a {
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border-radius: 2rem;
+    font-size: 20px;
+    background: var(--back);
+    border: 2px solid var(--letter);
+    color: var(--letter);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all .125s;
+}
+#contact  a:hover {
+    background: var(--letter);
+    color: var(--back);
+    text-decoration: underline;
+}
+#contact  a:active {
+    border: 2px solid var(--back);
+    background: var(--letter);
+    color: var(--back);
+} 
+#contact > p {
+    background: var(--back);
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border-radius: 2rem;
+}
+/**Footer**/
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-block: 10vh;
+    width: 100%;
+}
+footer > a > img {
+    width: 100px;
+    height: 100px;
+    margin-inline: 2vw;
+    transition: all .3s ease;
+}
+footer > p {
+    font-size: 15px;
+    width: 50vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer a {
+    text-decoration: none;
+    transition: color .3s;
+}
+footer a:hover {
+    color: var(--letter);
+}
+#year {
+    margin-inline: 5px;
+}
+@media screen and (max-width: 1020px) {
+    footer {
+        flex-direction: column-reverse;
+    }
+    footer * {
+        margin-block: 2vh;
+    }
+}
+@media screen and (max-width: 775px) { 
+    footer > p {
+        width: 75%;
+    } 
+}
+@media screen and (max-width: 600px) { 
+    #contact > p, #contact > a {
+        font-size: 15px;
+        padding-inline: 1rem;
+    }
+}
+@media screen and (max-width: 500px) {  
+    #contact {
+        flex-direction: column;
+    }
+    #contact > p, #contact > a {
+        font-size: 15px;
+    }
+    footer p {
+        width: 95%;
+    }
+}
