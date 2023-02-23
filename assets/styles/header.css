@@ -117,14 +117,14 @@ header > nav > div > a > img {
     height: 59.6px;
 }
 
-@media screen and (max-width:1300px) {
+/* @media screen and (max-width:1300px) {
     header > nav > ul > li > a {
         justify-content: space-between;
     } 
-}
-@media screen and (max-width: 1250px) {
+} */
+/* @media screen and (max-width: 1250px) {
     header.is-active {
-        height: 11vh;
+        height: 20vh;
     }
     header > nav {
         flex-direction: column;
@@ -132,16 +132,16 @@ header > nav > div > a > img {
     header > nav > ul {
         width: 100%;
     }
-}
-@media screen and (max-width: 1130px) {
+} */
+/* @media screen and (max-width: 1130px) {
     header {
         font-size: 14px;
     }
     header > nav > ul {
         width: 80%;
     }
-}
-@media screen and (max-width: 1000px) {
+} */
+@media screen and (max-width: 1300px) {
     header.is-active.show {
         height: 65vh;
         overflow: hidden;
