@@ -155,7 +155,6 @@ header > nav > div > a > img {
     header > nav > div {
         top: 0;
         position: fixed;
-        margin-block: .5vh;
         display: flex;
         width: calc(100% - 10vw);
         justify-content: space-between;
@@ -163,7 +162,8 @@ header > nav > div > a > img {
         height: 10vh;
     }
     header.is-active .hamburger {
-        display: inline-block !important;
+        display: flex !important;
+        align-items: center;
     }
     header > nav > ul {
         position: fixed;

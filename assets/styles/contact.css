@@ -122,7 +122,10 @@ hr.complete {
     background: var(--back);
 }
 #email-form > form > fieldset > legend {
-    padding: .5rem;
+    padding: .45rem;
+    background-color: var(--back);
+    border-radius: 1rem;
+    border: 1px solid var(--letter);
 }
 #email-form input, #email-form select {
     margin: .2rem;
@@ -446,9 +449,30 @@ footer a:hover {
         width: 100%;
     }
     #email-form form {
-        width: 80%;
+        width: 90%;
+    } 
+    .card {
+        margin-block-end: 5vh;
+        width: 340px;
+        aspect-ratio: 1/.5;
+        font-size: 80%;
     }
+    .card-content {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
 
+    }
+    .card-subtitle {
+        display: none;
+    }
+    .card-title {
+        text-align: right;
+        width: 75%;
+    }
+    .card-icon {
+        margin-block-end: 58px;
+    }
 }
 @media screen and (max-width: 1020px) {
     footer {
@@ -464,10 +488,7 @@ footer a:hover {
     } 
 }
 @media screen and (max-width: 530px) {
-    .card {
-        width: 340px;
-        aspect-ratio: 1/1;
-    }
+    
     .card-subtitle {
         font-size: 75%;
     }
