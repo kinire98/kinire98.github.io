@@ -97,6 +97,10 @@ hr.complete {
     background: none;
 }
 /**E-mail form**/
+#section {
+    position: absolute;
+    top: 14vh;
+}
 #email-form {
     display: flex;
     justify-content: space-evenly;
@@ -106,6 +110,7 @@ hr.complete {
     margin-inline: 1vw;
     overflow: hidden;
     z-index: 1;
+    position: relative;
 }
 #email-form > form {
     width: 65%;

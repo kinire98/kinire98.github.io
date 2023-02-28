@@ -193,6 +193,16 @@ header > nav > div > a > img {
     transition: all .3s;
 }
 }
+@media screen and (max-height: 700px) {
+    header.is-active {
+        height: 15vh;
+    }
+}
+@media screen and (max-height: 500px) {
+    header.is-active {
+        height: 20vh;
+    }
+}
 /**Nothing to do with header but I dont want to put all the css in every file**/
 #title > i {
     position: absolute;

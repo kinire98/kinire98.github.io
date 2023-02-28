@@ -97,7 +97,7 @@ a:hover > i, a:hover > img {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 95vh;
     width: 100%;
     background: white;
     background-image: radial-gradient(var(--back) 3px, transparent 0);
@@ -195,7 +195,7 @@ a:hover > i, a:hover > img {
 #extra-features > #right {
     background-image: url('../img/codecode.jpg');
     background-size: cover;
-    background-position: 500px -150px;
+    background-position: 500px 0px;
     background-attachment: fixed;
 }
 div.back-img > p, div.back-img > h3 {
@@ -341,7 +341,7 @@ footer a:hover {
 #year {
     margin-inline: 5px;
 }
-@media screen and (max-width: 1030px) {
+@media screen and (max-width: 1300px) {
     #char > .row {
         padding-block: 5vh;
         flex-direction: column;
@@ -365,6 +365,28 @@ footer a:hover {
         margin-block: 2vh;
     }
 }
+@media screen and (max-width: 995px) {
+    #extra-features {
+        flex-direction: column;
+    }
+    #extra-features > .back-img {
+        min-height: 95vh;
+    }
+    #extra-features > #right {
+        background-position: -100px ;
+    }
+    #extra-features > #center {
+        background-size: 150%;
+        background-position: 0px -250px;
+    }
+    #extra-features > #left {
+        background-size: 250%;
+        background-position: cover;
+    }
+    footer > p {
+        width: 75%;
+    }
+}
 @media screen and (max-width: 885px) {
     #extra-features > .back-img {
         min-height: 130vh;
@@ -378,28 +400,6 @@ footer a:hover {
         background-position: -400px -0px;
     }
 }
-@media screen and (max-width: 775px) {
-    #extra-features {
-        flex-direction: column;
-    }
-    #extra-features > .back-img {
-        min-height: 95vh;
-    }
-    #extra-features > #right {
-        background-position: -100px ;
-    }
-    #extra-features > #center {
-        background-size: 135%;
-        background-position: 0px 0px;
-    }
-    #extra-features > #left {
-        background-size: 250%;
-        background-position: 0px 350px;
-    }
-    footer > p {
-        width: 75%;
-    }
-}
 @media screen and (max-width: 600px) {
     #title * {
         width: 75%;
@@ -408,10 +408,14 @@ footer a:hover {
         font-size: 15px;
         padding-inline: 1rem;
     }
+    #extra-features > #center {
+        background-size: 250%;
+        background-position: -100px -250px;
+    }
 }
 @media screen and (max-width: 533px) {
     #extra-features > #left {
-        background-size: 300%;
+        background-size: 350%;
         background-position: -50px 0px;
     }
 }
@@ -433,18 +437,13 @@ footer a:hover {
     #extra-features > #left {
         background-size: 350%;
     }
-    #extra-features > #center {
-        background-size: 150%;
-    }
+    
 }
 @media screen and (max-width: 400px) {
     #title * {
         width: 90%;
     }
-    #extra-features > #center {
-        background-size: 150%;
-        background-position: 0px 0px;
-    }
+    
 }
 @media screen and (max-width: 368px) {
     #extra-features > #left {
@@ -468,5 +467,24 @@ footer a:hover {
 @media screen and (min-width:1800px) {
     #extra-features > #center {
         background-size: 1500px;
+    }
+}
+@media screen and (max-height: 650px) {
+    #extra-features {
+        flex-direction: column;
+    }
+    #extra-features > .back-img {
+        min-height: 95vh;
+    }
+    #extra-features > #right {
+        background-position: -100px ;
+    }
+    #extra-features > #center {
+        background-size: 100%;
+        background-position: 0px -250px;
+    }
+    #extra-features > #left {
+        background-size: 250%;
+        background-position: cover;
     }
 }
