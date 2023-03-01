@@ -35,4 +35,38 @@ body {
     margin: 0;
     padding: 0;
     background: var(--back);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url('../img/obi-wan.gif');
+    background-size: cover;
+}
+h1 {
+    color: white;
+    font-size: 5rem;
+    z-index: 1;
+}
+h2 {
+    color: white;
+    font-size: 4rem;
+    z-index: 1;
+}
+a {
+    color: white;
+    font-size: 2.5rem;
+    z-index: 1;
+}
+img {
+    width: 15rem;
+}
+.black {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--black);
+    z-index: 0;
 }
