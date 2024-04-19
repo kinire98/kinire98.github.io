@@ -1,0 +1,191 @@
+---
+import LinkButton from "./LinkButton.astro"
+---
+
+
+<button class="hamburger hamburger--squeeze" type="button">
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+<aside> 
+  <ul>
+    <li>
+        <LinkButton id="home" content="Home" path="/" />
+    </li>
+    <li>
+        <LinkButton id="about_me" content="About&nbsp;me" path="/about_me" />
+    </li>
+    <li>
+        <LinkButton id="projects" content="Projects" path="/projects" />
+    </li>
+    <li>
+        <LinkButton id="blog" content="Blog" path="/blog" />
+    </li>
+    <li>
+        <LinkButton id="contact" content="Contact" path="/contact" />
+    </li>
+  </ul>
+</aside>
+<div id="black">
+    <span>Made with 🗿🤙</span>
+</div>
+
+<script lang="ts">
+    
+const $ham = document.querySelector('.hamburger')
+const $aside = document.querySelector('aside');
+const $black = document.querySelector('#black');
+let hidden = true;
+function changes() {
+    $ham?.classList.toggle('is-active');
+    $aside?.classList.toggle('is-active');
+    $black?.classList.toggle('is-active');
+    if (hidden) {
+      document.body.style.overflowY = "hidden";
+      hidden = false;
+    } else {
+      document.body.style.overflowY = "scroll";
+      hidden = true;
+    }  
+}
+$ham?.addEventListener('click', changes); 
+$black?.addEventListener('click', () => {
+    if(!hidden) {
+        changes();
+    }
+}); 
+let $els = document.querySelectorAll('button');
+$els?.forEach(element => {
+    if (element.dataset.path == undefined) {
+        return null;
+    }
+    element.addEventListener('click', () => {
+    const $a = document.createElement('a');
+    $a.href = element.dataset.path;
+    document.body.appendChild($a);
+    $a.click();
+})
+
+});
+</script>
+<style>
+@import '../styles/hamburgers.min.css';
+.hamburger {
+  border-radius: 50%;
+  position: fixed;
+  right: 3vw;
+  bottom: 3vh;
+  z-index: 999;
+  background-color: transparent;
+  transition: transform 1s;
+}
+.hamburger.is-active .hamburger-inner, 
+.hamburger.is-active .hamburger-inner::after, 
+.hamburger.is-active .hamburger-inner::before,
+.hamburger-inner, .hamburger-inner::after,
+.hamburger-inner::before {
+    background-color:var(--wood);
+    box-shadow: 0 0 2px var(--wood),
+                0 0 4px var(--wood);
+}
+aside {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  width: 30vw;
+  position: fixed;
+  top: 0;
+  left: -50vw;
+  background-color: var(--sbgc);
+  transition: .75s all ease;
+  z-index: 999;
+}
+aside.is-active {
+  left: 0vw;
+}
+aside ul {
+  width: 100%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+aside ul li {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#black {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--black-transp);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: .75s all ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#black.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+#black span {
+  color: var(--white);
+  text-align: center;
+  position: relative;
+}
+@media screen and (max-width: 1100px) {
+  aside {
+    width: 50vw;
+    left: -60vw;
+  }
+  #black span {
+    left: 10vw;
+  }
+}
+@media screen and (max-width: 680px) {
+  aside ul li {
+    width: 75%;
+  }  
+  #black span {
+    left: 20vw;
+  }
+}
+@media screen and (max-width: 450px) {
+  aside {
+    width: 60vw;
+    left: -70vw;
+  } 
+  #black span {
+    left: 30vw;
+  }
+}
+@media screen and (max-width: 365px) {
+  aside {
+    width: 70vw;
+    left: -80vw;
+  }  
+}
+@media screen and (max-height: 700px) {
+  aside ul {
+    height: 95%;
+  }
+  aside ul li {
+    height: 80%;
+  }
+}
+
+</style>

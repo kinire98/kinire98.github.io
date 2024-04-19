@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Layout.astro';
+import LinkButton from '../components/LinkButton.astro';
+---
+
+<Layout title="Home - kinire">
+	<main>
+      <ul>
+        <li>
+			    <LinkButton id='about_me' content='About&nbsp;me' path='./about_me' />
+        </li>
+        <li>
+			    <LinkButton id='projects' content='Projects' path='./projects'/>
+        </li>
+        <li>
+			    <LinkButton id='blog' content='Blog' path='./blog'/>
+        </li>
+        <li>
+			    <LinkButton id='contact' content='Contact' path='./contact'/>
+        </li>
+      </ul>
+    <span>Made with 🗿🤙</span>
+	</main>
+</Layout>
+
+<script lang="ts">
+
+let $els = document.querySelectorAll('button');
+$els?.forEach(element => {
+    element.addEventListener('click', () => {
+    const $a = document.createElement('a');
+    $a.href = element.dataset.path;
+    document.body.appendChild($a);
+    $a.click();
+})
+
+});
+</script>
+
+<style>
+
+main {
+  flex-direction: column;
+}
+ul {
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+ul li {
+  width: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+span {
+  justify-self: flex-end;
+  color: var(--white);
+  position: absolute;
+  bottom: 15vh;
+  opacity: 0;
+  animation: beginning-animation 2s ease-out forwards 2s;
+}
+#about_me {
+  opacity: 0;
+  animation: beginning-animation 2s ease-out forwards;
+}
+#projects {
+  opacity: 0;
+  animation: beginning-animation 2s ease-out forwards .3s;
+}
+#blog {
+  opacity: 0;
+  animation: beginning-animation 2s ease-out forwards .6s;
+}
+#contact {
+  opacity: 0;
+  animation: beginning-animation 2s ease-out forwards .9s;
+}
+@keyframes beginning-animation {
+ 0% {
+   opacity: 0;
+   transform: translateY(-20px);
+ }  
+ 100% {
+   opacity: 1;
+   transform: translateY(0px);
+ }
+}
+@media screen and (max-width: 850px) {
+  button:hover {
+    width: 95%;
+  } 
+}
+
+@keyframes beginning-animation {
+ 0% {
+   opacity: 0;
+   transform: translateY(-20px);
+ }  
+ 100% {
+   opacity: 1;
+   transform: translateY(0px);
+ }
+}
+@media screen and (max-width: 1300px) {
+  ul {
+    width: 80%;
+  } 
+}
+@media screen and (max-width: 1000px) {
+  ul {
+    width: 95%;
+  } 
+}
+@media screen and (max-width: 750px) {
+  ul {
+    flex-direction: column;
+    min-height: 80vh;
+  }
+  ul li {
+    width: 30%;
+  }
+  span {
+    bottom: 2.5vh;
+  }
+}
+@media screen and (max-width: 490px) {
+  ul li {
+    width: 50%;
+  }
+  
+}
+
+</style>

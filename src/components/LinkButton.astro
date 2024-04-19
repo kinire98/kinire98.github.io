@@ -1,0 +1,37 @@
+---
+interface Props {
+    content: string;
+    id: string;
+    path: string;
+}
+const { content, id, path } = Astro.props;
+---
+
+
+<button id={id} data-path={path}>{ content }</button>
+
+<style>
+
+button {
+  text-transform: uppercase;
+  background-color: transparent;
+  font-variant: small-caps;
+  font-weight: bold;
+  width: 100%;
+  padding-block: 20px;
+  color: var(--white);
+  border: none;
+  border-bottom: 1px solid var(--wood);
+  /*border-radius: 1em;*/
+  font-size: 1.2em;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all .5s;
+}
+button:hover {
+  text-shadow: 0 0 3px var(--white);
+  letter-spacing: 5px;
+  width: 80%;
+}
+</style>
+

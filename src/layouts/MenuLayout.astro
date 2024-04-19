@@ -1,0 +1,16 @@
+---
+import Layout from './Layout.astro';
+import AsideMenu from '../components/AsideMenu.astro';
+
+interface Props {
+    title: string;
+}
+const { title } = Astro.props;
+---
+<Layout title={title}>
+    <AsideMenu />
+    <main>
+        <slot />
+    </main>
+</Layout>
+
