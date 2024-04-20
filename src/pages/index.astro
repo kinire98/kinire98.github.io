@@ -1,22 +1,22 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import LinkButton from '../components/LinkButton.astro';
+import LinkButtonAnim from '../components/LinkButton.astro';
 ---
 
 <Layout title="Home - kinire">
 	<main>
       <ul>
         <li>
-			    <LinkButton id='about_me' content='About&nbsp;me' path='./about_me' />
+			    <LinkButtonAnim id='about_me' content='About&nbsp;me' path='./about_me' />
         </li>
         <li>
-			    <LinkButton id='projects' content='Projects' path='./projects'/>
+			    <LinkButtonAnim id='projects' content='Projects' path='./projects'/>
         </li>
         <li>
-			    <LinkButton id='blog' content='Blog' path='./blog'/>
+			    <LinkButtonAnim id='blog' content='Blog' path='./blog'/>
         </li>
         <li>
-			    <LinkButton id='contact' content='Contact' path='./contact'/>
+			    <LinkButtonAnim id='contact' content='Contact' path='./contact'/>
         </li>
       </ul>
     <span>Made with 🗿🤙</span>
@@ -30,9 +30,19 @@ $els?.forEach(element => {
     element.addEventListener('click', () => {
     const $a = document.createElement('a');
     $a.href = element.dataset.path;
+    $a.style.display = 'none';
     document.body.appendChild($a);
     $a.click();
 })
+
+});
+document.querySelector('span').addEventListener('click', () => {
+    const $a = document.createElement('a');
+    $a.href = 'https://github.com/kinire98/kinire98.github.io';
+    $a.target = '_blank';
+    $a.style.display = 'none';
+    document.body.appendChild($a);
+    $a.click();
 
 });
 </script>
@@ -63,7 +73,11 @@ span {
   position: absolute;
   bottom: 15vh;
   opacity: 0;
+  cursor: pointer;
   animation: beginning-animation 2s ease-out forwards 2s;
+}
+span:hover {
+  text-decoration: underline;
 }
 #about_me {
   opacity: 0;

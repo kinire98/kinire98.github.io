@@ -1,0 +1,44 @@
+---
+interface Props {
+    id: string;
+    content: string;
+    path: string;
+    delay: number;
+}
+const { id, content, path, delay } = Astro.props;
+---
+
+<button id={id} data-path={path} data-delay={delay}>{ content }</button>
+
+
+<style>
+button {
+  opacity: 0;
+}
+#about_me {
+  opacity: 0;
+  animation: beginning-animation 2s ease-out forwards;
+}
+#projects {
+  opacity: 0;
+  animation: beginning-animation 2s ease-out forwards .3s;
+}
+#blog {
+  opacity: 0;
+  animation: beginning-animation 2s ease-out forwards .6s;
+}
+#contact {
+  opacity: 0;
+  animation: beginning-animation 2s ease-out forwards .9s;
+}
+@keyframes beginning-animation {
+ 0% {
+   opacity: 0;
+   transform: translateY(-20px);
+ }  
+ 100% {
+   opacity: 1;
+   transform: translateY(0px);
+ }
+}
+</style>
