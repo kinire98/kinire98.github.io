@@ -3,17 +3,47 @@ interface Props {
     id: string;
     content: string;
     path: string;
-    delay: number;
 }
-const { id, content, path, delay } = Astro.props;
+const { id, content, path } = Astro.props;
 ---
 
-<button id={id} data-path={path} data-delay={delay}>{ content }</button>
+<button id={id} data-path={path} >
+  { content }
+  <div></div>
+</button>
 
 
 <style>
 button {
-  opacity: 0;
+  position: relative;
+  text-transform: uppercase;
+  background-color: transparent;
+  font-variant: small-caps;
+  font-weight: bold;
+  width: 100%;
+  color: var(--white);
+  border: none;
+  /*border-radius: 1em;*/
+  font-size: 1.2em;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all .5s;
+  height: 80px;
+}
+button:hover {
+  text-shadow: 0 0 3px var(--white);
+  letter-spacing: 5px;
+}
+button div {
+  width: 100%;
+  border-bottom: 1px solid var(--wood);
+  position: absolute;
+  bottom: 0;
+  transition: all .5s;
+}
+button:hover div {
+  width: 80%;
+  transform: translateX(11%);
 }
 #about_me {
   opacity: 0;

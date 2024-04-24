@@ -1,13 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import LinkButtonAnim from '../components/LinkButton.astro';
+import LinkButtonAnim from '../components/LinkButtonAnim.astro';
 ---
 
 <Layout title="Home - kinire">
 	<main>
       <ul>
         <li>
-			    <LinkButtonAnim id='about_me' content='About&nbsp;me' path='./about_me' />
+			    <LinkButtonAnim id='about_me' content='About&nbsp;me' path='./about_me'/>
         </li>
         <li>
 			    <LinkButtonAnim id='projects' content='Projects' path='./projects'/>
@@ -25,7 +25,7 @@ import LinkButtonAnim from '../components/LinkButton.astro';
 
 <script lang="ts">
 
-let $els = document.querySelectorAll('button');
+let $els = document.querySelectorAll('button[data-path]');
 $els?.forEach(element => {
     element.addEventListener('click', () => {
     const $a = document.createElement('a');
