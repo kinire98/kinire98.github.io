@@ -7,19 +7,22 @@ const { title } = Astro.props;
 ---
 
 <MenuLayout title={title}>
-    <div id="central">
-        <slot />
-    </div>
+    <main>
+        <article id="central">
+            <slot />
+        </article>
+    </main>
 </MenuLayout>
 
 <style>
     #central {
-        min-height: 100vh;
         min-width: 60vw;
         max-width: 75vw;
         padding: 100px;
         flex-direction: column;
         text-align: left;
-        color: var(--white);
+    }
+    #central h1 {
+        font-size: 500px !important;
     }
 </style>

@@ -18,6 +18,8 @@ const { title } = Astro.props;
 	</head>
 	<body>
 		<slot />
+    <div class="back" id="back"></div>
+    <div class="back" id="back2"></div>
 	</body>
 </html>
 <style is:global>
@@ -29,22 +31,28 @@ const { title } = Astro.props;
   box-sizing: border-box;
   font-family: "Space Mono", monospace;
   text-decoration-color: var(--cont);
+  color: var(--white);
 }
 body {
-  width: 100vw;
-  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
   background: var(--bgc); 
   display: flex;
   align-items: center;
   justify-content: center;
 }
-main {
-  min-height: 100vh;
-  min-width: 100vw;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.back {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(ellipse farthest-side at bottom, var(--cont-trans), transparent);
+  z-index: -1;
+  top: 0;
+}
+#back {
+  left: 50vw;
+}
+#back2 {
+  right: 50vw;
 }
 </style>

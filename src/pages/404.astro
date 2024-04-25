@@ -1,0 +1,23 @@
+---
+import MenuLayout from "../layouts/MenuLayout.astro"
+import LinkButton from "../components/LinkButton.astro"
+---
+
+<MenuLayout title="404 - kinire">
+    <h1>This isn't the page you are looking for</h1>
+    <br><br><br><br><br>
+    <LinkButton content="Go back to home page" path="../" id="home"/>
+</MenuLayout>
+<script lang="ts">
+
+let $homes = document.querySelectorAll('button#home');
+$homes.forEach(element => {
+    element.addEventListener('click', () => {
+        const $a = document.createElement('a');
+        $a.href = element.dataset.path;
+        $a.style.display = 'none';
+        document.body.appendChild($a);
+        $a.click();
+    });
+});
+</script>

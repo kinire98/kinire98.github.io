@@ -24,18 +24,8 @@ import LinkButtonAnim from '../components/LinkButtonAnim.astro';
 </Layout>
 
 <script lang="ts">
-
-let $els = document.querySelectorAll('button[data-path]');
-$els?.forEach(element => {
-    element.addEventListener('click', () => {
-    const $a = document.createElement('a');
-    $a.href = element.dataset.path;
-    $a.style.display = 'none';
-    document.body.appendChild($a);
-    $a.click();
-})
-
-});
+import openLinks from "../helpers/openLink";
+openLinks();
 document.querySelector('span').addEventListener('click', () => {
     const $a = document.createElement('a');
     $a.href = 'https://github.com/kinire98/kinire98.github.io';
@@ -52,6 +42,11 @@ body {
   overflow-y: hidden;
 }
 main {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
 }
 ul {
