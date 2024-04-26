@@ -1,0 +1,80 @@
+---
+interface Props {
+    words: string
+}
+const { words } = Astro.props;
+let $words = words.split(',');
+let content = '';
+$words.forEach(word => {
+    content += `<div>${word}</div>`;
+})
+---
+<h1 set:html={content}>
+</h1>
+
+
+<script lang="ts" type="module">
+    const $divs = document.querySelectorAll('h1 div');
+    let position = 0;
+    const INTERVALLENGHT = 7500;
+    const showProgressive = (el) => {
+        if(!el instanceof HTMLElement){
+            return null;
+        }
+        let content = el.innerHTML;
+        el.innerHTML = '';
+        let counter = 0;
+        const interval = setInterval(() => {
+            el.innerHTML += content[counter];
+            counter++;
+        }, (INTERVALLENGHT / 4) / content.length);
+        setTimeout(() => {
+            clearInterval(interval);
+            if(el.innerHTML !== content) {
+                el.innerHTML += content[content.length - 1];
+            }
+        }, INTERVALLENGHT / 4);
+        el.style.display = 'block'; 
+    }
+    const hide = (el) => {
+        el.style.display = 'none';
+    }
+    $divs.forEach(element => {
+        let positionInside = position;
+        setTimeout(() => {showProgressive(element)}, INTERVALLENGHT * positionInside);
+        setTimeout(() => {hide(element)}, INTERVALLENGHT + (INTERVALLENGHT * positionInside));
+        setInterval(() => {
+            setTimeout(() => {showProgressive(element)}, INTERVALLENGHT * positionInside);
+            setTimeout(() => {hide(element)}, INTERVALLENGHT + (INTERVALLENGHT * positionInside));
+        }, INTERVALLENGHT * $divs.length)
+        position++;
+    })
+</script>
+
+<style is:global>
+    h1 {
+        position: absolute;
+        top: 150px;
+        font-variant: small-caps;
+        color: var(--bgc);
+        font-size: 50px;
+    }
+    h1 div {
+        animation: animate 7.5s linear infinite;
+        display: none;
+    }
+    @keyframes animate {
+        0%,10%,20%,50.1%,60%,65.1%,80%,90.1%,92% {
+            color: transparent; 
+            text-shadow: none;
+        }
+        18.1%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100% {
+            color:var(--white);
+            text-shadow: 0 0 10px var(--cont),
+                        0 0 20px var(--cont),
+                        0 0 40px var(--cont),
+                        0 0 80px var(--cont),
+                        0 0 160px var(--cont);
+        }
+    }
+</style>

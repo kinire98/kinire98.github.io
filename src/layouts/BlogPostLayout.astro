@@ -14,7 +14,7 @@ const { title } = Astro.props;
     </main>
 </MenuLayout>
 
-<style>
+<style is:global>
     #central {
         min-width: 60vw;
         max-width: 75vw;
@@ -23,6 +23,27 @@ const { title } = Astro.props;
         text-align: left;
     }
     #central h1 {
-        font-size: 500px !important;
+        font-size: 75px;
+    }
+    #central h2 {
+        font-size: 60px;
+    }
+    #central h3 {
+        font-size: 50px
+    }
+    #central h4 {
+        font-size: 45px;
+    }
+    #central h5 {
+        font-size: 40px
+    }
+    #central h6 {
+        font-size: 30px;
+    }
+    #central p {
+        font-size: 25px;
+    }
+    #central img {
+        text-align: center;
     }
 </style>
