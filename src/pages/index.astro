@@ -56,6 +56,8 @@ body {
 main {
   min-height: 100vh;
   min-width: 100vw;
+  min-height: 100dvh;
+  min-width: 100dvw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -81,6 +83,7 @@ span {
   color: var(--white);
   position: absolute;
   bottom: 15vh;
+  bottom: 15dvh;
   opacity: 0;
   cursor: pointer;
   animation: beginning-animation 2s ease-out forwards 2s;
@@ -155,6 +158,7 @@ span:hover {
   }
   span {
     bottom: 1.5vh;
+    bottom: 1.5dvh;
   }
 }
 @media screen and (max-width: 490px) {
