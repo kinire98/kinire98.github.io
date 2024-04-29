@@ -41,9 +41,24 @@ const { title } = Astro.props;
         font-size: 30px;
     }
     #central p {
-        font-size: 25px;
+        font-size: 20px;
     }
     #central img {
         text-align: center;
+        font-weight: 200;
+    }
+    #central pre {
+        font-family: 'Courier New', Courier, monospace !important;
+        font-weight: bold;
+    }
+    @media screen and (max-width: 1100px) {
+       #central {
+        max-width: 100%;
+       } 
+    }
+    @media screen and (max-width: 650px) {
+        #central {
+            padding: 25px;
+        } 
     }
 </style>
