@@ -8,8 +8,7 @@ const { content, id, path } = Astro.props;
 ---
 
 
-<button id={id} data-path={path}>
-  { content }
+<button id={id} data-path={path} set:html={content}>
   <div></div>
 </button>
 
