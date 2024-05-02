@@ -83,8 +83,8 @@ document.querySelector('#joke').addEventListener('click', () => {
 .hamburger {
   border-radius: 50%;
   position: fixed;
-  right: 3vw;
-  bottom: 3vh;
+  right: 3dvw;
+  bottom: 3dvh;
   z-index: 999;
   background-color: transparent;
   transition: transform 1s;
@@ -103,11 +103,11 @@ aside {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 100%;
-  width: 30%;
+  height: 100dvh;
+  width: 30dvw;
   position: fixed;
   top: 0;
-  left: -50vw;
+  left: -50dvw;
   background-color: var(--sbgc);
   transition: .75s all ease;
   z-index: 999;
@@ -117,7 +117,7 @@ aside.is-active {
 }
 aside ul {
   width: 100%;
-  height: 80%;
+  height: 80dvh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -211,6 +211,13 @@ aside ul li {
   }
   aside ul li {
     height: 80%;
+  }
+}
+@media screen and (max-height: 500px) {
+  aside ul {
+    height: 80%;
+    position: relative;
+    bottom: 20px;
   }
 }
 
