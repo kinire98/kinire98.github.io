@@ -1,0 +1,49 @@
+---
+interface Props {
+    content: string;
+    id: string;
+    path: string;
+}
+const { content, id, path } = Astro.props;
+---
+
+
+<button id={id} data-path={path} set:html={content}>
+  <div></div>
+</button>
+
+<style>
+
+button {
+  position: relative;
+  text-transform: uppercase;
+  background-color: transparent;
+  font-variant: small-caps;
+  font-weight: bold;
+  width: 75%;
+  padding-block: 20px;
+  color: var(--white);
+  border: none;
+  /*border-radius: 1em;*/
+  font-size: 1.2em;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all .5s;
+}
+button:hover {
+  text-shadow: 0 0 3px var(--white);
+  letter-spacing: 5px;
+}
+button div {
+  width: 100%;
+  border-bottom: 1px solid var(--cont);
+  position: absolute;
+  bottom: 0;
+  transition: all .5s;
+}
+button:hover div {
+  width: 80%;
+  transform: translateX(11%);
+}
+</style>
+

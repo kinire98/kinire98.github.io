@@ -60,12 +60,18 @@ $words.forEach(word => {
         font-size: 50px;
         opacity: 0;
         font-weight: bold;
+        text-align: center;
         font-family: "neon", monospace !important;
         animation: appear 2s ease-out forwards;
     }
     h1 div {
         animation: animate 6s linear forwards;
         display: none;
+    }
+    @media screen and (max-height: 600px) {
+        h1 {
+            top: 30px;
+        }
     }
     @keyframes appear {
         0% {

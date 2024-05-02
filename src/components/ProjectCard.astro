@@ -1,0 +1,89 @@
+---
+const getRoutesForImage = (language: string): string => {
+    switch (language) {
+        case "Rust":
+            return "/curri_icons/languages/rust.svg";
+        case "HTML":
+            return "/curri_icons/languages/html.svg";
+        case "Astro":
+            return "/curri_icons/languages/astro.svg";
+        case "JavaScript":
+            return "/curri_icons/languages/js.svg";
+    
+        default:
+            return "";
+    }
+}
+import LinkButtonProjects from "./LinkButtonProjects.astro"
+interface Props {
+    name: string,
+    desc: string,
+    language: string,
+    url: string,
+    has_pages: boolean
+}
+let { name, desc, language, url, has_pages } = Astro.props;
+let pages_url: string = "https://kinire98.github.io/" + name;
+language = getRoutesForImage(language);
+---
+
+<div class="project">
+    <h2>{name}</h2>
+    <div class="not-name">
+        <p>{desc}</p>
+        <div class="buttons">
+            { 
+                language.length == 0 ? "" : <img src={language} />
+            }
+            <button data-href={url}><img src="/curri_icons/others/github.svg"/></button>
+        </div>
+        {
+            has_pages? name === "kinire98.github.io" ? "" : <LinkButtonProjects id={name + "id"} content="Link to the website" path={pages_url}/> : ""
+        }
+    </div>
+</div>
+
+<style is:global>
+    div.project {
+        width: 50vw;
+        width: 50dvw;
+        transition: all .3s;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
+    }
+    div.not-name {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin-top: 50px;
+    }
+    div.buttons {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-block: 50px;
+    }
+    p {
+        font-size: 1.5em;
+        font-weight: bold;
+        text-align: center;
+    }
+    button {
+        background: none;
+        border: none;
+    }
+    img {
+        height: 45px;
+    }
+    [data-path] {
+
+    }
+    [data-url] {}
+</style>

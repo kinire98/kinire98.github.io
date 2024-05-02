@@ -25,28 +25,16 @@ import Title from '../components/Title.astro';
 	</main>
 </Layout>
 
-<script lang="ts">
+<script>
+  import openLink from "../helpers/openLink";
+  import openPage from "../helpers/openPage";
 
-let $els = document.querySelectorAll('button[data-path]');
-$els?.forEach(element => {
-    element.addEventListener('click', () => {
-    const $a = document.createElement('a');
-    $a.href = element.dataset.path;
-    $a.style.display = 'none';
-    document.body.appendChild($a);
-    $a.click();
-})
-
-});
-document.querySelector('span').addEventListener('click', () => {
-    const $a = document.createElement('a');
-    $a.href = 'https://github.com/kinire98/kinire98.github.io';
-    $a.target = '_blank';
-    $a.style.display = 'none';
-    document.body.appendChild($a);
-    $a.click();
-
-});
+  let $els = document.querySelectorAll('button[data-path]');
+  $els?.forEach(element => {
+    const $element = element as HTMLElement;
+    openPage($element, $element.dataset.path!);
+  });
+  openLink(document.querySelector('span') as HTMLElement, 'https://github.com/kinire98/kinire98.github.io')
 </script>
 
 <style is:global>
@@ -160,12 +148,15 @@ span:hover {
     bottom: 1.5vh;
     bottom: 1.5dvh;
   }
+  @media screen and (max-height: 550px){
+    ul {
+      bottom: 25px;
+    }
+  }
 }
 @media screen and (max-width: 490px) {
   ul li {
     width: 50%;
   }
-  
 }
-
 </style>
