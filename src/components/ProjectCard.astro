@@ -15,6 +15,7 @@ const getRoutesForImage = (language: string): string => {
     }
 }
 import LinkButtonProjects from "./LinkButtonProjects.astro"
+import ProjectTitle from "./ProjectTitle.astro";
 interface Props {
     name: string,
     desc: string,
@@ -28,7 +29,7 @@ language = getRoutesForImage(language);
 ---
 
 <div class="project">
-    <h2>{name}</h2>
+    <ProjectTitle content={name} />
     <div class="not-name">
         <p>{desc}</p>
         <div class="buttons">
@@ -45,8 +46,10 @@ language = getRoutesForImage(language);
 
 <style is:global>
     div.project {
-        width: 50vw;
-        width: 50dvw;
+        min-width: 50vw;
+        min-width: 50dvw;
+        max-width: 70vw;
+        max-width: 70dvw;
         transition: all .3s;
         position: absolute;
         display: flex;

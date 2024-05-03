@@ -34,10 +34,20 @@ const json = JSON.parse(jsonTest());
     function show($el: HTMLElement)  {
         $el.style.visibility = 'visible';
         $el.style.opacity = '1';
+        const $title: HTMLElement = $el.querySelector('h2')!;
+        $title.style.display = 'inline';
+        let i = 0;
+        const addLetters = setInterval(() => {
+            if(i === $title.dataset.content!.length - 1) clearInterval(addLetters);
+            $title.innerHTML += $title.dataset.content![i];
+            i++;
+        }, (INTERVALLENGTH / 6) / $title.dataset.content!.length)
     }
     function hide($el: HTMLElement) {
         $el.style.visibility = 'hidden';
         $el.style.opacity = '0';
+        $el.querySelector('h2')!.style.display = 'none';
+        $el.querySelector('h2')!.innerHTML = '';
     }
 
     $projects.forEach((el) => {
@@ -74,10 +84,10 @@ const json = JSON.parse(jsonTest());
     }
     img {
         position: absolute;
-        width: 30px;
-        height: 30px;
-        top: 15px;
-        right: 15px;
+        width: 50px;
+        height: 50px;
+        top: 30px;
+        right: 30px;
         fill: var(--cont);
     }
 </style>

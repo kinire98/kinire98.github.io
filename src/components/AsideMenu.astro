@@ -50,10 +50,9 @@ function changes() {
     }  
 }
 $ham?.addEventListener('click', changes); 
-$black?.addEventListener('click', () => {
-    if(!hidden) {
-        changes();
-    }
+$black?.addEventListener('click', (e) => {
+    if(!hidden) changes();
+    
 }); 
 let $els = document.querySelectorAll('button[data-path]');
 $els?.forEach(element => {
