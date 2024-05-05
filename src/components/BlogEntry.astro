@@ -1,0 +1,22 @@
+---
+
+interface Props {
+    title: string,
+    author: string,
+    date: string,
+    img_url: string,
+    blog_post_url: string
+}
+
+const { title, author, date, img_url, blog_post_url } = Astro.props;
+---
+
+
+<figure data-url={ blog_post_url }>
+    <img src={ img_url } alt="">
+    <figcaption>
+        <h2>{ title }</h2>
+        <span>{ author }</span>
+        <span>{ date }</span>
+    </figcaption>
+</figure>

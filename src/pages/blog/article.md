@@ -1,6 +1,8 @@
 ---
 layout: ../../layouts/BlogPostLayout.astro
-title: algo
+title: BlogTitle - kinire
+author: kinire98
+article: Como con esto pasó esto
 ---
 # Cómo con esto pasó esto
 lorem lorem lorem  

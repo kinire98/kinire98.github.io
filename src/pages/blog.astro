@@ -1,8 +1,17 @@
 ---
 import MenuLayout from "../layouts/MenuLayout.astro";
+import BlogEntry from "../components/BlogEntry.astro";
+
+
+const posts = await Astro.glob('./blog/*.md');
+
 ---
 
 
 <MenuLayout title="Blog - kinire">
-    
+    {
+        posts.map(post => (
+            <BlogEntry title={ post.frontmatter.title } author={ post.frontmatter.author } date={ post.frontmatter.date } img_url={ post.frontmatter.img_url } blog_post_url={ post.file }/>
+        ))
+    }
 </MenuLayout>

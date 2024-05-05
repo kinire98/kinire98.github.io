@@ -1,12 +1,9 @@
 ---
 import MenuLayout from "./MenuLayout.astro";
-interface Props {
-    title: string;
-}
-const { title } = Astro.props;
+const { frontmatter } = Astro.props;
 ---
 
-<MenuLayout title={title}>
+<MenuLayout title={frontmatter.title}>
     <main>
         <article id="central">
             <slot />
@@ -15,6 +12,7 @@ const { title } = Astro.props;
 </MenuLayout>
 
 <style is:global>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
     #central {
         min-width: 60vw;
         max-width: 75vw;
@@ -40,15 +38,16 @@ const { title } = Astro.props;
     #central h6 {
         font-size: 30px;
     }
-    #central p {
+    #central p, strong, em, pre {
         font-size: 20px;
+        font-family: "Rubik", sans-serif;
     }
     #central img {
         text-align: center;
         font-weight: 200;
     }
-    #central pre {
-        font-family: 'Courier New', Courier, monospace !important;
+    #central pre, #central pre * {
+        font-family: "Rubik", sans-serif;
         font-weight: bold;
     }
     @media screen and (max-width: 1100px) {

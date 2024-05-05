@@ -25,4 +25,4 @@ pnpm-debug.log*
 
 # mines
 # article.md
-**/jsontest.js
+jsontest.js
