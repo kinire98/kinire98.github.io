@@ -1,0 +1,99 @@
+---
+interface Props {
+    words: string
+}
+const { words } = Astro.props;
+let $words = words.split(',');
+let content = '';
+$words.forEach(word => {
+    content += `<div>${word}</div>`;
+})
+---
+<h1 set:html={content}>
+</h1>
+
+
+<script>
+    import showLetters from "../helpers/showLetters";
+    const $divs = document.querySelectorAll('h1 div');
+    let position = 0;
+    const INTERVALLENGHT = 10000;
+    const showProgressive = (el: HTMLElement) => {
+        let content = el.innerHTML;
+        el.innerHTML = '';
+        let counter = 0;
+        const interval = setInterval(() => {
+            el.innerHTML += content[counter];
+            counter++;
+        }, (INTERVALLENGHT / 4) / content.length);
+        setTimeout(() => {
+            clearInterval(interval);
+            if(el.innerHTML !== content) {
+                el.innerHTML += content[content.length - 1];
+            }
+        }, INTERVALLENGHT / 4);
+        el.style.display = 'block'; 
+    }
+    const hide = (el: HTMLElement) => {
+        el.style.display = 'none';
+    }
+    $divs.forEach((el) => {
+        let positionInside = position;
+        let element = el as HTMLElement;
+        setTimeout(() => {showProgressive(element)}, INTERVALLENGHT * positionInside);
+        setTimeout(() => {hide(element)}, INTERVALLENGHT + (INTERVALLENGHT * positionInside));
+        setInterval(() => {
+            setTimeout(() => {showProgressive(element)}, INTERVALLENGHT * positionInside);
+            setTimeout(() => {hide(element)}, INTERVALLENGHT + (INTERVALLENGHT * positionInside));
+        }, INTERVALLENGHT * $divs.length)
+        position++;
+    })
+</script>
+
+<style is:global>
+    h1 {
+        position: absolute;
+        top: 150px;
+        font-variant: small-caps;
+        color: var(--bgc);
+        font-size: 50px;
+        opacity: 0;
+        font-weight: bold;
+        text-align: center;
+        font-family: "neon", monospace !important;
+        animation: appear 2s ease-out forwards;
+    }
+    h1 div {
+        animation: animate 6s linear forwards;
+        display: none;
+    }
+    @media screen and (max-height: 600px) {
+        h1 {
+            top: 30px;
+        }
+    }
+    @keyframes appear {
+        0% {
+            opacity: 0;
+            transform: translateY(-50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0px);
+        }
+    }
+    @keyframes animate {
+        18.1%,10%,20%,50.1%,60%,65.1%,80%,90.1%,92% {
+            color: var(--bgc); 
+            text-shadow: 0 0 4px var(--black);
+        }
+        0%, 18%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100% {
+            color:var(--white);
+            text-shadow: 0 0 10px var(--cont),
+                        0 0 20px var(--cont),
+                        0 0 40px var(--cont),
+                        0 0 80px var(--cont),
+                        0 0 160px var(--cont);
+        }
+    }
+</style>

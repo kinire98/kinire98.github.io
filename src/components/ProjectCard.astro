@@ -15,7 +15,7 @@ const getRoutesForImage = (language: string): string => {
     }
 }
 import LinkButtonProjects from "./LinkButtonProjects.astro"
-import ProjectTitle from "./ProjectTitle.astro";
+import Title from "./Title.astro";
 interface Props {
     name: string,
     desc: string,
@@ -29,7 +29,7 @@ language = getRoutesForImage(language);
 ---
 
 <div class="project">
-    <ProjectTitle content={name} />
+    <Title content={name} />
     <div class="not-name">
         <p>{desc}</p>
         <div class="buttons">

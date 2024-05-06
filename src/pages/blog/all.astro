@@ -1,15 +1,11 @@
 ---
-import MenuLayout from "../layouts/MenuLayout.astro";
-import BlogEntry from "../components/BlogEntry.astro";
-import Title from "../components/Title.astro";
-import shuffleArray from "../helpers/shuffleArray";
-import LinkButton from "../components/LinkButton.astro";
+import MenuLayout from "../../layouts/MenuLayout.astro";
+import ReducedBlogEntry from "../../components/ReducedBlogEntry.astro";
+import Title from "../../components/Title.astro";
 
 let posts: any[];
 try {
-    posts = await Astro.glob('./blog/*.md');
-    posts = shuffleArray(posts);
-    posts = posts.slice(0,15);
+    posts = await Astro.glob('./*.md');
 } catch (error) {
     posts = [];
 }
@@ -26,24 +22,22 @@ try {
                 posts.length === 0 
                 ? ""
                 : posts.map(post => (
-                    <BlogEntry title={ post.frontmatter.article } author={ post.frontmatter.author } date={ post.frontmatter.date } img_url={ post.frontmatter.img_url } blog_post_url={ post.url! }/>
+                    <ReducedBlogEntry title={ post.frontmatter.article } author={ post.frontmatter.author } date={ post.frontmatter.date } img_url={ post.frontmatter.img_url } blog_post_url={ post.url! }/>
                 ))
             }
         </div>
-        <LinkButton content="See all posts" id="all-posts" path="./blog/all"/>
     </div>
 </MenuLayout>
 
 <script>
-    import openLink from "../helpers/openPage";
-    import showLetters from "../helpers/showLetters";
-    const $button = document.getElementById("all-posts")!;
-    showLetters(document.querySelector('h2')! as HTMLElement, 10000);
-    openLink($button, $button.dataset.path!);
+    import showLetters from "../../helpers/showLetters";
 
+    showLetters(document.querySelector('h2')! as HTMLElement, 10000);
 
     document.querySelectorAll('figure').forEach((element) => {
         let el = element as HTMLElement;
+
+
     });
 </script>
 
@@ -60,7 +54,7 @@ try {
     }
     #blog-posts {
         display: inline-grid;
-        grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
         margin: 0;
         width: 80%;
     }
@@ -70,9 +64,6 @@ try {
     }
     .prog-title {
         margin-block: 50px;
-    }
-    #all-posts {
-        width: 25%;
     }
     @keyframes appear {
         0% {

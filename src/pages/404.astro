@@ -8,12 +8,12 @@ import LinkButton from "../components/LinkButton.astro"
     <br><br><br><br><br>
     <LinkButton content="Go back to home page" path="../" id="home404"/>
 </MenuLayout>
-<script lang="ts">
+<script>
 
-let $home = document.querySelector('button#home404');
-    $home.addEventListener('click', () => {
+let $home = document.querySelector('button#home404') as HTMLElement;
+    $home?.addEventListener('click', () => {
         const $a = document.createElement('a');
-        $a.href = $home.dataset.path;
+        $a.href = $home.dataset!.path!;
         $a.style.display = 'none';
         document.body.appendChild($a);
         $a.click();
