@@ -19,14 +19,14 @@ try {
 
 <MenuLayout title="Blog - kinire">
     <div id="blog-page">
-        <Title content="Blog"/>
+        <Title content="Blog - featured"/>
         {posts.length === 0 ? <h2 id="nothing">There are no posts, yet</h2> : ""}
         <div id="blog-posts">
             {
                 posts.length === 0 
                 ? ""
                 : posts.map(post => (
-                    <BlogEntry title={ post.frontmatter.article } author={ post.frontmatter.author } date={ post.frontmatter.date } img_url={ post.frontmatter.img_url } blog_post_url={ post.url! }/>
+                    <BlogEntry title={ post.frontmatter.article } author={ post.frontmatter.author } date={ post.frontmatter.date } img_url={ post.frontmatter.img_url } url={ post.url! }/>
                 ))
             }
         </div>
@@ -44,6 +44,7 @@ try {
 
     document.querySelectorAll('figure').forEach((element) => {
         let el = element as HTMLElement;
+        openLink(el, el.dataset.url!);
     });
 </script>
 

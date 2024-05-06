@@ -2,6 +2,7 @@
 import MenuLayout from "../../layouts/MenuLayout.astro";
 import ReducedBlogEntry from "../../components/ReducedBlogEntry.astro";
 import Title from "../../components/Title.astro";
+import LinkButton from "../../components/LinkButton.astro";
 
 let posts: any[];
 try {
@@ -13,30 +14,35 @@ try {
 ---
 
 
-<MenuLayout title="Blog - kinire">
+<MenuLayout title="Blog - all entries - kinire">
     <div id="blog-page">
-        <Title content="Blog"/>
+        <Title content="Blog - all entries"/>
         {posts.length === 0 ? <h2 id="nothing">There are no posts, yet</h2> : ""}
         <div id="blog-posts">
             {
                 posts.length === 0 
                 ? ""
                 : posts.map(post => (
-                    <ReducedBlogEntry title={ post.frontmatter.article } author={ post.frontmatter.author } date={ post.frontmatter.date } img_url={ post.frontmatter.img_url } blog_post_url={ post.url! }/>
+                    <ReducedBlogEntry title={ post.frontmatter.article } author={ post.frontmatter.author } date={ post.frontmatter.date } url={ post.url! }/>
                 ))
             }
         </div>
+        <LinkButton content="See featured posts" id="featured-posts" path="/blog"/>
     </div>
 </MenuLayout>
 
 <script>
     import showLetters from "../../helpers/showLetters";
+    import openLink from "../../helpers/openPage";
 
     showLetters(document.querySelector('h2')! as HTMLElement, 10000);
 
+    const $but = document.getElementById("featured-posts")! as HTMLElement;
+    openLink($but, $but.dataset.path!);
+
     document.querySelectorAll('figure').forEach((element) => {
         let el = element as HTMLElement;
-
+        openLink(el, el.dataset.url!)
 
     });
 </script>
@@ -54,7 +60,7 @@ try {
     }
     #blog-posts {
         display: inline-grid;
-        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
         margin: 0;
         width: 80%;
     }
@@ -64,6 +70,9 @@ try {
     }
     .prog-title {
         margin-block: 50px;
+    }
+    #featured-posts {
+        width: 25%;
     }
     @keyframes appear {
         0% {

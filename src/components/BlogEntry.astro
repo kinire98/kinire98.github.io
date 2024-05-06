@@ -5,17 +5,17 @@ interface Props {
     author: string,
     date: Date,
     img_url: string,
-    blog_post_url: string
+    url: string
 }
 
-const { title, author, date, img_url, blog_post_url } = Astro.props;
+const { title, author, date, img_url, url } = Astro.props;
 let parsedDate = date === undefined 
 ? ""
 : date.toString().substring(0,9);
 ---
 
 
-<figure data-url={ blog_post_url }>
+<figure data-url={ url }>
     <img src={ img_url } alt="">
     <figcaption>
         <h2>{ title }</h2>
