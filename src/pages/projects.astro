@@ -48,17 +48,25 @@ const json = await res.json();
     $projects.forEach((el) => {
         const positionInside = position;
         const $el = el as HTMLElement;
+        //Show the letters of each project
+        // Hide them
         hide($el);
+        // First iteration
         setTimeout(() => {show($el)}, INTERVALLENGTH * positionInside);
         setTimeout(() => {hide($el)},INTERVALLENGTH + (INTERVALLENGTH * positionInside));
+        // Following iterations
         setInterval(() => {
             setTimeout(() => {show($el)}, INTERVALLENGTH * positionInside);
             setTimeout(() => {hide($el)},INTERVALLENGTH + (INTERVALLENGTH * positionInside));
         }, INTERVALLENGTH * $projects.length);
+        // Position update
         position++;
+
+        // Opening the link to the github repo
         const $githubRepo = el.querySelector('[data-href]') as HTMLElement;
         openLink($githubRepo, $githubRepo.dataset.href!);
 
+        // Creating the a for opening ghpages in case the project has one
         const $hasghPages = el.querySelector('[data-path]');
         if($hasghPages !== null) {
             const $ghpages = $hasghPages as HTMLElement;
@@ -86,7 +94,6 @@ const json = await res.json();
         transition: all .3s;
     }
     img:hover {
-
         filter: drop-shadow(0 0 5px var(--cont));
     }
 </style>

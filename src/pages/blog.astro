@@ -19,7 +19,11 @@ try {
 
 <MenuLayout title="Blog - kinire">
     <div id="blog-page">
-        <Title content="Blog - featured"/>
+        {
+            posts.length === 0
+            ? <Title content="Blog"/>
+            : <Title content="Blog - featured"/>
+        }
         {posts.length === 0 ? <h2 id="nothing">There are no posts, yet</h2> : ""}
         <div id="blog-posts">
             {
@@ -30,7 +34,12 @@ try {
                 ))
             }
         </div>
-        <LinkButton content="See all posts" id="all-posts" path="./blog/all"/>
+        {
+            posts.length === 0 
+            ? ""
+            : <LinkButton content="See all posts" id="all-posts" path="/blog/all"/>
+        }
+        
     </div>
 </MenuLayout>
 
@@ -67,6 +76,7 @@ try {
     }
     #nothing {
         opacity: 0;
+        text-align: center;
         animation: appear 4s ease-out forwards;
     }
     .prog-title {
@@ -84,5 +94,8 @@ try {
             transform: translateY(0px);
             opacity: 1;
         }
+    }
+    @media screen {
+        
     }
 </style>

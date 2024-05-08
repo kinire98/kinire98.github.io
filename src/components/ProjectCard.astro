@@ -33,13 +33,13 @@ language = getRoutesForImage(language);
     <div class="not-name">
         <p>{desc}</p>
         <div class="buttons">
-            <button data-href={url}><img src="/curri_icons/others/github.svg"/></button>
+            <img data-href={url} src="/curri_icons/others/github.svg"/>
             { 
                 language.length == 0 ? "" : <img src={language} />
             }
         </div>
         {
-            has_pages? name === "kinire98.github.io" ? "" : <LinkButtonProjects id={name + "id"} content="Link to the website" path={pages_url}/> : ""
+            has_pages? name === "kinire98.github.io" ? "" : <LinkButtonProjects id={name + "id"} content="Open website" path={pages_url}/> : ""
         }
     </div>
 </div>
@@ -79,6 +79,7 @@ language = getRoutesForImage(language);
     p {
         font-size: 1.5em;
         text-align: center;
+        font-family: "Rubik", sans-serif !important;
     }
     button {
         background: none;
@@ -95,5 +96,13 @@ language = getRoutesForImage(language);
     }
     [data-href]:hover {
         filter: drop-shadow(0 0 15px var(--bgc));
+    }
+    @media screen and (max-width: 650px){
+        [data-path] {
+            width: 100% !important;
+        }
+        p {
+            font-size: 1em;
+        }
     }
 </style>
