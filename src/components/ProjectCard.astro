@@ -88,9 +88,6 @@ language = getRoutesForImage(language);
     img {
         height: 45px;
     }
-    [data-path] {
-
-    }
     [data-href]{
         transition: all .3s;
     }
@@ -101,6 +98,22 @@ language = getRoutesForImage(language);
         [data-path] {
             width: 100% !important;
         }
+        p {
+            font-size: 1em;
+        }
+    }
+    @media screen and (max-height: 650px){
+        div.project {
+            min-height: 40dvh;
+        }
+        p {
+            font-size: 1.5em;
+        }
+        img {
+            height: 30px;
+        }
+    }
+    @media screen and (max-height: 450px){
         p {
             font-size: 1em;
         }
