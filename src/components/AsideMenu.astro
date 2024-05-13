@@ -78,9 +78,13 @@ import LinkButton from "./LinkButton.astro"
 .hamburger.is-active .hamburger-inner::before,
 .hamburger-inner, .hamburger-inner::after,
 .hamburger-inner::before {
-    background-color:var(--cont);
-    box-shadow: 0 0 2px var(--cont),
-                0 0 4px var(--cont);
+    background-color:var(--white);
+    box-shadow: 0 0 10px var(--cont),
+                  0 0 20px var(--cont),
+                  0 0 40px var(--cont),
+                  0 0 80px var(--cont),
+                  0 0 160px var(--cont);
+    animation: animate 8s linear forwards;
 }
 aside {
   display: flex;
