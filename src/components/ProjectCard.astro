@@ -24,7 +24,7 @@ interface Props {
     has_pages: boolean
 }
 let { name, desc, language, url, has_pages } = Astro.props;
-let pages_url: string = "https://kinire98.github.io/" + name;
+let pages_url: string = `https://kinire98.github.io/${name}`;
 language = getRoutesForImage(language);
 ---
 
