@@ -28,7 +28,7 @@ import LinkButton from "./LinkButton.astro"
   </ul>
 </aside>
 <div id="black">
-  <span id="joke">Made with 🗿&#8205;🤙</span>
+    <span id="joke">Made with 🗿🤙</span>
 </div>
 
 <script>
@@ -67,8 +67,6 @@ import LinkButton from "./LinkButton.astro"
 .hamburger {
   border-radius: 50%;
   position: fixed;
-  right: 3vw;
-  bottom: 3vh;
   right: 3dvw;
   bottom: 3dvh;
   z-index: 999;
@@ -92,7 +90,8 @@ aside {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
+  flex-direction: column;
+  height: 100dvh;
   width: 30dvw;
   position: fixed;
   top: 0;
@@ -135,22 +134,19 @@ aside ul li {
   display: flex;
   align-items: center;
   justify-content: center;
-  span {
-    color: var(--white);
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-    left: 17.5vw;
-    left: 17.5dvw;
-  }
-  span:hover {
-    text-decoration: underline;
-  }
-
 }
 #black.is-active {
   opacity: 1;
   visibility: visible;
+}
+#black span {
+  color: var(--white);
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+}
+#black span:hover {
+  text-decoration: underline;
 }
 @media screen and (max-width: 1100px) {
   aside {
@@ -160,11 +156,11 @@ aside ul li {
     left: -60dvw;
   }
   #black span {
-    left: 25vw;
-    left: 25dvw;
+    left: 10vw;
+    left: 10dvw;
   }
 }
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 680px) {
   /*aside ul {
     position: relative;
     bottom: 30px;
@@ -195,9 +191,6 @@ aside ul li {
     left: -80vw;
     width: 70dvw;
     left: -80dvw;
-  }
-  #black span {
-    width: 1px;
   }  
 }
 @media screen and (max-height: 700px) {
@@ -215,21 +208,5 @@ aside ul li {
     bottom: 20px;
   }
 }
-@media screen and (max-height: 500px) {
-  aside ul {
-    height: 70%;
-    position: relative;
-  }
-}
-@media screen and (max-height: 400px) {
-  aside ul {
-    height: 90%;
-    position: relative;
-  }
-}@media screen and (max-height: 300px) {
-  aside ul {
-    height: 95%;
-    position: relative;
-  }
-}
+
 </style>
