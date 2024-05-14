@@ -51,7 +51,7 @@ import LinkButton from "./LinkButton.astro"
       }  
   }
   $ham?.addEventListener('click', changes); 
-  $black?.addEventListener('click', (e) => {
+  $black?.addEventListener('click', () => {
       if(!hidden) changes();
 
   }); 
