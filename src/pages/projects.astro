@@ -14,7 +14,7 @@ const json = await res.json();
         {
             json.map((ob: any) => (
 
-                <ProjectCard name={ob.name} desc={ob.description} url={ob.html_url} language={ob.language} has_pages={ob.has_pages}/>
+                <ProjectCard client:visible name={ob.name} desc={ob.description} url={ob.html_url} language={ob.language} has_pages={ob.has_pages}/>
             ))
         }
         <img src="/github.svg" id="imagen-github"/>
