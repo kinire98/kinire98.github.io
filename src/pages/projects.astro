@@ -1,11 +1,11 @@
 ---
 import MenuLayout from "../layouts/MenuLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
-import jsonTest from "../helpers/jsontest";
-//const res = await fetch("https://api.github.com/users/kinire98/repos");
+//import jsonTest from "../helpers/jsontest";
+const res = await fetch("https://api.github.com/users/kinire98/repos");
 
-//const json = await res.json();
-const json = JSON.parse(jsonTest());
+const json = await res.json();
+//const json = JSON.parse(jsonTest());
 
 ---
 
