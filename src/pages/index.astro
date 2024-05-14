@@ -32,7 +32,9 @@ import HomeTitle from '../components/HomeTitle.astro';
   let $els = document.querySelectorAll('button[data-path]');
   $els?.forEach(element => {
     const $element = element as HTMLElement;
-    openPage($element, $element.dataset.path!);
+    let path = $element.dataset.path!;
+    path = path.replaceAll('\x00', '');
+    openPage($element, path);
   });
   openLink(document.querySelector('span') as HTMLElement, 'https://github.com/kinire98/kinire98.github.io')
 </script>
