@@ -53,9 +53,7 @@ try {
 
     document.querySelectorAll('figure').forEach((element) => {
         let el = element as HTMLElement;
-        let url = el.dataset.url!;
-        url = url.replaceAll('\x00', '');
-        openLink(el, url);
+        openLink(el, el.dataset.url!);
     });
 </script>
 
