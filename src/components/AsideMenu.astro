@@ -67,10 +67,10 @@ import LinkButton from "./LinkButton.astro"
 .hamburger {
   border-radius: 50%;
   position: fixed;
-  right: 3vw;
-  bottom: 3vh;
-  right: 3dvw;
-  bottom: 3dvh;
+  left: 3vw;
+  top: 3vh;
+  left: 3dvw;
+  top: 3dvh;
   z-index: 999;
   background-color: transparent;
   transition: transform 1s;
@@ -96,13 +96,13 @@ aside {
   width: 30dvw;
   position: fixed;
   top: 0;
-  left: -50dvw;
+  right: -50dvw;
   background-color: var(--sbgc);
   transition: .75s all ease;
   z-index: 999;
 }
 aside.is-active {
-  left: 0vw;
+  right: 0vw;
 }
 aside ul {
   width: 100%;
@@ -140,8 +140,8 @@ aside ul li {
     text-align: center;
     position: relative;
     cursor: pointer;
-    left: 17.5vw;
-    left: 17.5dvw;
+    right: 17.5vw;
+    right: 17.5dvw;
   }
   span:hover {
     text-decoration: underline;
@@ -155,13 +155,13 @@ aside ul li {
 @media screen and (max-width: 1100px) {
   aside {
     width: 50vw;
-    left: -60vw;
+    right: -60vw;
     width: 50dvw;
-    left: -60dvw;
+    right: -60dvw;
   }
   #black span {
-    left: 25vw;
-    left: 25dvw;
+    right: 25vw;
+    right: 25dvw;
   }
 }
 @media screen and (max-width: 750px) {
@@ -173,28 +173,28 @@ aside ul li {
     width: 75%;
   }  
   #black span {
-    left: 20vw;
-    left: 20dvw;
+    right: 20vw;
+    right: 20dvw;
   }
 }
 @media screen and (max-width: 450px) {
   aside {
     width: 60vw;
-    left: -70vw;
+    right: -70vw;
     width: 60dvw;
-    left: -70dvw;
+    right: -70dvw;
   } 
   #black span {
-    left: 30vw;
-    left: 30dvw;
+    right: 30vw;
+    right: 30dvw;
   }
 }
 @media screen and (max-width: 365px) {
   aside {
     width: 70vw;
-    left: -80vw;
+    right: -80vw;
     width: 70dvw;
-    left: -80dvw;
+    right: -80dvw;
   }
   #black span {
     width: 1px;
