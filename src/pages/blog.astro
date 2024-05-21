@@ -7,95 +7,100 @@ import LinkButton from "../components/LinkButton.astro";
 
 let posts: any[];
 try {
-    posts = await Astro.glob('./blog/*.md');
-    posts = shuffleArray(posts);
-    posts = posts.slice(0,15);
+	posts = await Astro.glob("./blog/*.md");
+	posts = shuffleArray(posts);
+	posts = posts.slice(0, 15);
 } catch (error) {
-    posts = [];
+	posts = [];
 }
-
 ---
 
-
 <MenuLayout title="Blog - kinire">
-    <div id="blog-page">
-        {
-            posts.length === 0
-            ? <Title content="Blog"/>
-            : <Title content="Blog - featured"/>
-        }
-        {posts.length === 0 ? <h2 id="nothing">There are no posts, yet</h2> : ""}
-        <div id="blog-posts">
-            {
-                posts.length === 0 
-                ? ""
-                : posts.map(post => (
-                    <BlogEntry title={ post.frontmatter.article } author={ post.frontmatter.author } date={ post.frontmatter.date } img_url={ post.frontmatter.img_url } url={ post.url! }/>
-                ))
-            }
-        </div>
-        {
-            posts.length === 0 
-            ? ""
-            : <LinkButton content="See all posts" id="all-posts" path="/blog/all"/>
-        }
-        
-    </div>
+	<div id="blog-page">
+		{
+			posts.length === 0 ? (
+				<Title content="Blog" />
+			) : (
+				<Title content="Blog - featured" />
+			)
+		}
+		{posts.length === 0 ? <h2 id="nothing">There are no posts, yet</h2> : ""}
+		<div id="blog-posts">
+			{
+				posts.length === 0
+					? ""
+					: posts.map((post) => (
+							<BlogEntry
+								title={post.frontmatter.article}
+								author={post.frontmatter.author}
+								date={post.frontmatter.date}
+								img_url={post.frontmatter.img_url}
+								url={post.url!}
+							/>
+						))
+			}
+		</div>
+		{
+			posts.length === 0 ? (
+				""
+			) : (
+				<LinkButton content="See all posts" id="all-posts" path="/blog/all" />
+			)
+		}
+	</div>
 </MenuLayout>
 
 <script>
-    import openLink from "../helpers/openPage";
-    import showLetters from "../helpers/showLetters";
-    const $button = document.getElementById("all-posts")!;
-    showLetters(document.querySelector('h2')! as HTMLElement, 10000);
-    openLink($button, $button.dataset.path!);
+	import openLink from "../helpers/openPage";
+	import showLetters from "../helpers/showLetters";
+	const $button = document.getElementById("all-posts")!;
+	showLetters(document.querySelector("h2")! as HTMLElement, 10000);
+	openLink($button, $button.dataset.path!);
 
-
-    document.querySelectorAll('figure').forEach((element) => {
-        let el = element as HTMLElement;
-        openLink(el, el.dataset.url!);
-    });
+	document.querySelectorAll("figure").forEach((element) => {
+		let el = element as HTMLElement;
+		openLink(el, el.dataset.url!);
+	});
 </script>
 
 <style is:global>
-    #blog-page {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        min-width: 100vw;
-        min-width: 100dvw;
-        min-height: 100vh;
-        min-height: 100dvh;
-    }
-    #blog-posts {
-        display: inline-grid;
-        grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
-        margin: 0;
-        width: 80%;
-    }
-    #nothing {
-        opacity: 0;
-        text-align: center;
-        animation: appear 4s ease-out forwards;
-    }
-    .prog-title {
-        margin-block: 50px;
-    }
-    #all-posts {
-        width: 25%;
-    }
-    @keyframes appear {
-        0% {
-            transform: translateY(-15px);
-            opacity: 0;
-        }
-        100% {
-            transform: translateY(0px);
-            opacity: 1;
-        }
-    }
-    @media screen {
-        
-    }
+	#blog-page {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		min-width: 100vw;
+		min-width: 100dvw;
+		min-height: 100vh;
+		min-height: 100dvh;
+	}
+	#blog-posts {
+		display: inline-grid;
+		grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+		margin: 0;
+		width: 80%;
+	}
+	#nothing {
+		opacity: 0;
+		text-align: center;
+		animation: appear 4s ease-out forwards;
+	}
+	.prog-title {
+		margin-block: 50px;
+	}
+	#all-posts {
+		width: 25%;
+	}
+	@keyframes appear {
+		0% {
+			transform: translateY(-15px);
+			opacity: 0;
+		}
+		100% {
+			transform: translateY(0px);
+			opacity: 1;
+		}
+	}
+	@media screen {
+	}
 </style>

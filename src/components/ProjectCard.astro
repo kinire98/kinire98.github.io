@@ -1,27 +1,27 @@
 ---
 const getRoutesForImage = (language: string): string => {
-    switch (language) {
-        case "Rust":
-            return "/curri_icons/languages/rust.svg";
-        case "HTML":
-            return "/curri_icons/languages/html.svg";
-        case "Astro":
-            return "/curri_icons/languages/astro.svg";
-        case "JavaScript":
-            return "/curri_icons/languages/js.svg";
-    
-        default:
-            return "";
-    }
-}
-import LinkButtonProjects from "./LinkButtonProjects.astro"
+	switch (language) {
+		case "Rust":
+			return "/curri_icons/languages/rust.svg";
+		case "HTML":
+			return "/curri_icons/languages/html.svg";
+		case "Astro":
+			return "/curri_icons/languages/astro.svg";
+		case "JavaScript":
+			return "/curri_icons/languages/js.svg";
+
+		default:
+			return "";
+	}
+};
+import LinkButtonProjects from "./LinkButtonProjects.astro";
 import Title from "./Title.astro";
 interface Props {
-    name: string,
-    desc: string,
-    language: string,
-    url: string,
-    has_pages: boolean
+	name: string;
+	desc: string;
+	language: string;
+	url: string;
+	has_pages: boolean;
 }
 let { name, desc, language, url, has_pages } = Astro.props;
 let pages_url: string = "https://kinire98.github.io/" + name;
@@ -29,96 +29,106 @@ language = getRoutesForImage(language);
 ---
 
 <div class="project">
-    <Title content={name} />
-    <div class="not-name">
-        <p>{desc}</p>
-        <div class="buttons">
-            <img data-href={url} src="/curri_icons/others/github.svg"/>
-            { 
-                language.length == 0 ? "" : <img src={language} />
-            }
-        </div>
-        {
-            has_pages? name === "kinire98.github.io" ? "" : <LinkButtonProjects id={name + "id"} content="Open website" path={pages_url}/> : ""
-        }
-    </div>
+	<Title content={name} />
+	<div class="not-name">
+		<p>{desc}</p>
+		<div class="buttons">
+			<img data-href={url} src="/curri_icons/others/github.svg" />
+			{language.length == 0 ? "" : <img src={language} />}
+		</div>
+		{
+			has_pages ? (
+				name === "kinire98.github.io" ? (
+					""
+				) : (
+					<LinkButtonProjects
+						id={name + "id"}
+						content="Open website"
+						path={pages_url}
+					/>
+				)
+			) : (
+				""
+			)
+		}
+	</div>
 </div>
 
 <style is:global>
-    @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-    div.project {
-        min-width: 60vw;
-        min-width: 60dvw;
-        max-width: 65vw;
-        max-width: 65dvw;
-        transition: all .3s;
-        position: absolute;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        opacity: 0;
-        visibility: hidden;
-    }
-    div.not-name {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 100%;
-        margin-top: 50px;
-    }
-    div.buttons {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        text-align: center;
-        margin-block: 50px;
-    }
-    p {
-        font-size: 1.5em;
-        text-align: center;
-        font-family: "Rubik", sans-serif !important;
-    }
-    button {
-        background: none;
-        border: none;
-    }
-    img {
-        height: 45px;
-    }
-    [data-href]{
-        transition: all .3s;
-    }
-    [data-href]:hover {
-        filter: drop-shadow(0 0 15px var(--bgc));
-    }
-    @media screen and (max-width: 650px){
-        [data-path] {
-            width: 100% !important;
-        }
-        p {
-            font-size: 1em;
-        }
-    }
-    @media screen and (max-height: 650px){
-        div.project {
-            min-height: 40dvh;
-        }
-        p {
-            font-size: 1.5em;
-        }
-        img {
-            height: 30px;
-        }
-        div.buttons {
-            margin-block:20px;
-        }
-    }
-    @media screen and (max-height: 450px){
-        p {
-            font-size: 1em;
-        }
-    }
+	@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+	div.project {
+		min-width: 60vw;
+		min-width: 60dvw;
+		max-width: 65vw;
+		max-width: 65dvw;
+		transition: all 0.3s;
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		opacity: 0;
+		visibility: hidden;
+	}
+	div.not-name {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		width: 100%;
+		margin-top: 50px;
+	}
+	div.buttons {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		text-align: center;
+		margin-block: 50px;
+	}
+	p {
+		font-size: 1.5em;
+		text-align: center;
+		font-family: "Rubik", sans-serif !important;
+	}
+	button {
+		background: none;
+		border: none;
+	}
+	img {
+		height: 45px;
+	}
+	[data-href] {
+		transition: all 0.3s;
+	}
+	[data-href]:hover {
+		filter: drop-shadow(0 0 15px var(--bgc));
+	}
+	@media screen and (max-width: 650px) {
+		[data-path] {
+			width: 100% !important;
+		}
+		p {
+			font-size: 1em;
+		}
+	}
+	@media screen and (max-height: 650px) {
+		div.project {
+			min-height: 40dvh;
+		}
+		p {
+			font-size: 1.5em;
+		}
+		img {
+			height: 30px;
+		}
+		div.buttons {
+			margin-block: 20px;
+		}
+	}
+	@media screen and (max-height: 450px) {
+		p {
+			font-size: 1em;
+		}
+	}
 </style>

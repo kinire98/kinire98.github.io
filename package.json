@@ -11,8 +11,8 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.5.10",
-    "astro": "^4.6.3",
-    "pnpm": "^9.0.5",
-    "typescript": "^5.2.2"
+    "astro": "^4.8.6",
+    "pnpm": "^9.1.1",
+    "typescript": "^5.4.5"
   }
 }

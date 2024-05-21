@@ -1,0 +1,61 @@
+---
+interface Props {
+	num: number;
+}
+
+const { num } = Astro.props;
+
+const genDivs = (num: number): string => {
+	if (num === 0) return "";
+
+	let divs = "<div></div>";
+	return "<div class='selected'></div>" + divs.repeat(num - 1);
+};
+---
+
+<div id="wrap" set:html={genDivs(num)} />
+
+<script>
+	// ! If changed, change also the one in the Project Counter
+	const INTERVALLENGTH: number = 10000;
+	const $counterSet = document.querySelectorAll("#wrap div");
+	let counter = 1;
+	const changeClass = (position: number) => {
+		if (position === 0) {
+			$counterSet[$counterSet.length - 1].classList.remove("selected");
+		} else {
+			$counterSet[position - 1].classList.remove("selected");
+		}
+		$counterSet[position].classList.add("selected");
+	};
+
+	setInterval(() => {
+		changeClass(counter);
+		counter++;
+		if (counter >= $counterSet.length) counter = 0;
+	}, INTERVALLENGTH);
+</script>
+
+<style>
+	#wrap {
+		position: absolute;
+		bottom: 50px;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		height: 15px;
+		width: 80%;
+		div {
+			height: 1px;
+			width: 30px;
+			background-color: var(--cont);
+			transition: all 0.3s;
+			border-radius: 15px;
+			cursor: pointer;
+		}
+		.selected {
+			height: 5px;
+			width: 45px;
+		}
+	}
+</style>

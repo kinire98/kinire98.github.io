@@ -1,166 +1,169 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import LinkButtonAnim from '../components/LinkButtonAnim.astro';
-import HomeTitle from '../components/HomeTitle.astro';
+import Layout from "../layouts/Layout.astro";
+import LinkButtonAnim from "../components/LinkButtonAnim.astro";
+import HomeTitle from "../components/HomeTitle.astro";
 ---
 
 <Layout title="Home - kinire">
 	<main>
-      <HomeTitle words='Hello and welcome to my website, enjoy :)'></HomeTitle>
-      <ul>
-        <li>
-			    <LinkButtonAnim id='about_me' content='About&nbsp;me' path='./about_me'/>
-        </li>
-        <li>
-			    <LinkButtonAnim id='projects' content='Projects' path='./projects'/>
-        </li>
-        <li>
-			    <LinkButtonAnim id='blog' content='Blog' path='./blog'/>
-        </li>
-        <li>
-			    <LinkButtonAnim id='contact' content='Contact' path='./contact'/>
-        </li>
-      </ul>
-    <span>Made with 🗿🤙</span>
+		<HomeTitle words="Hello and welcome to my website, enjoy :)" />
+		<ul>
+			<li>
+				<LinkButtonAnim id="about_me" content="About me" path="./about_me" />
+			</li>
+			<li>
+				<LinkButtonAnim id="projects" content="Projects" path="./projects" />
+			</li>
+			<li>
+				<LinkButtonAnim id="blog" content="Blog" path="./blog" />
+			</li>
+			<li>
+				<LinkButtonAnim id="contact" content="Contact" path="./contact" />
+			</li>
+		</ul>
+		<span>Made with 🗿🤙</span>
 	</main>
 </Layout>
 
 <script>
-  import openLink from "../helpers/openLink";
-  import openPage from "../helpers/openPage";
+	import openLink from "../helpers/openLink";
+	import openPage from "../helpers/openPage";
 
-  let $els = document.querySelectorAll('button[data-path]');
-  $els?.forEach(element => {
-    const $element = element as HTMLElement;
-    openPage($element, $element.dataset.path!);
-  });
-  openLink(document.querySelector('span') as HTMLElement, 'https://github.com/kinire98/kinire98.github.io')
+	let $els = document.querySelectorAll("button[data-path]");
+	$els?.forEach((element) => {
+		const $element = element as HTMLElement;
+		openPage($element, $element.dataset.path!);
+	});
+	openLink(
+		document.querySelector("span") as HTMLElement,
+		"https://github.com/kinire98/kinire98.github.io"
+	);
 </script>
 
 <style is:global>
-body {
-  overflow-y: hidden;
-}
-main {
-  min-height: 100vh;
-  min-width: 100vw;
-  min-height: 100dvh;
-  min-width: 100dvw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-ul {
-  width: 60%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-}
-ul li {
-  width: 20%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+	body {
+		overflow-y: hidden;
+	}
+	main {
+		min-height: 100vh;
+		min-width: 100vw;
+		min-height: 100dvh;
+		min-width: 100dvw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	ul {
+		width: 60%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		align-items: center;
+		flex-direction: row;
+	}
+	ul li {
+		width: 20%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 
-span {
-  justify-self: flex-end;
-  color: var(--white);
-  position: absolute;
-  bottom: 15vh;
-  bottom: 15dvh;
-  opacity: 0;
-  cursor: pointer;
-  animation: beginning-animation 2s ease-out forwards 2s;
-}
-span:hover {
-  text-decoration: underline ;
-}
-#about_me {
-  opacity: 0;
-  animation: beginning-animation 2s ease-out forwards;
-}
-#projects {
-  opacity: 0;
-  animation: beginning-animation 2s ease-out forwards .3s;
-}
-#blog {
-  opacity: 0;
-  animation: beginning-animation 2s ease-out forwards .6s;
-}
-#contact {
-  opacity: 0;
-  animation: beginning-animation 2s ease-out forwards .9s;
-}
-@keyframes beginning-animation {
- 0% {
-   opacity: 0;
-   transform: translateY(-20px);
- }  
- 100% {
-   opacity: 1;
-   transform: translateY(0px);
- }
-}
-@media screen and (max-width: 850px) {
-  button:hover {
-    width: 95%;
-  } 
-  li {
-    position: relative;
-    top: 25px;
-  }
-}
-@media screen and (max-width: 1300px) {
-  ul {
-    width: 80%;
-  } 
-}
-@media screen and (max-width: 1000px) {
-  ul {
-    width: 95%;
-  } 
-}
-@media screen and (max-width: 750px) {
-  h1 {
-    display: none; 
-  }
-  ul {
-    flex-direction: column;
-    min-height: 80vh;
-    position: relative;
-    bottom: 75px;
-  }
-  ul li {
-    width: 30%;
-  }
-  span {
-    bottom: 1.5vh;
-    bottom: 1.5dvh;
-  }
-  li {
-    top: 0px;
-  }
-  @media screen and (max-height: 550px){
-    ul {
-      bottom: 25px;
-    }
-  }
-}
-@media screen and (max-width: 490px) {
-  ul li {
-    width: 50%;
-  }
-}
-@media screen and (max-height: 375px) {
-  h1 {
-    display: none;
-  }
-  li {
-    top: 0px;
-  }
-}
+	span {
+		justify-self: flex-end;
+		color: var(--white);
+		position: absolute;
+		bottom: 15vh;
+		bottom: 15dvh;
+		opacity: 0;
+		cursor: pointer;
+		animation: beginning-animation 2s ease-out forwards 2s;
+	}
+	span:hover {
+		text-decoration: underline;
+	}
+	#about_me {
+		opacity: 0;
+		animation: beginning-animation 2s ease-out forwards;
+	}
+	#projects {
+		opacity: 0;
+		animation: beginning-animation 2s ease-out forwards 0.3s;
+	}
+	#blog {
+		opacity: 0;
+		animation: beginning-animation 2s ease-out forwards 0.6s;
+	}
+	#contact {
+		opacity: 0;
+		animation: beginning-animation 2s ease-out forwards 0.9s;
+	}
+	@keyframes beginning-animation {
+		0% {
+			opacity: 0;
+			transform: translateY(-20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0px);
+		}
+	}
+	@media screen and (max-width: 850px) {
+		button:hover {
+			width: 95%;
+		}
+		li {
+			position: relative;
+			top: 25px;
+		}
+	}
+	@media screen and (max-width: 1300px) {
+		ul {
+			width: 80%;
+		}
+	}
+	@media screen and (max-width: 1000px) {
+		ul {
+			width: 95%;
+		}
+	}
+	@media screen and (max-width: 750px) {
+		h1 {
+			display: none;
+		}
+		ul {
+			flex-direction: column;
+			min-height: 80vh;
+			position: relative;
+			bottom: 75px;
+		}
+		ul li {
+			width: 30%;
+		}
+		span {
+			bottom: 1.5vh;
+			bottom: 1.5dvh;
+		}
+		li {
+			top: 0px;
+		}
+		@media screen and (max-height: 550px) {
+			ul {
+				bottom: 25px;
+			}
+		}
+	}
+	@media screen and (max-width: 490px) {
+		ul li {
+			width: 50%;
+		}
+	}
+	@media screen and (max-height: 375px) {
+		h1 {
+			display: none;
+		}
+		li {
+			top: 0px;
+		}
+	}
 </style>

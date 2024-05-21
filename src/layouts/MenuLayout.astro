@@ -1,24 +1,25 @@
 ---
-import Layout from './Layout.astro';
-import AsideMenu from '../components/AsideMenu.astro';
+import Layout from "./Layout.astro";
+import AsideMenu from "../components/AsideMenu.astro";
 
 interface Props {
-    title: string;
+	title: string;
 }
 const { title } = Astro.props;
 ---
+
 <Layout title={title}>
-    <AsideMenu />
-    <main>
-        <slot />
-    </main>
+	<AsideMenu />
+	<main>
+		<slot />
+	</main>
 </Layout>
 <style>
-    main {
-        min-width: 100dvw;
-        min-height: 100dvh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+	main {
+		min-width: 100dvw;
+		min-height: 100dvh;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
 </style>

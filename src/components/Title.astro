@@ -1,54 +1,74 @@
 ---
 interface Props {
-    content: string
+	content: string;
 }
 const { content } = Astro.props;
 ---
+
 <div class="prog-title">
-    <h2 data-content={content} class="project-title"></h2>
+	<h2 data-content={content} class="project-title"></h2>
 </div>
 
 <style>
-    div {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 5em;
-    }
-    h2 {
-        font-size: 3em;
-        animation: animate 8s linear forwards; 
-        text-align: center;
-    }
-    @keyframes animate {
-        18.1%,10%,20%,50.1%,60%,65.1%,80%,90.1%,92% {
-            color: var(--bgc); 
-            text-shadow: 0 0 4px var(--black);
-        }
-        0%, 18%,20.1%,30%,50%,60.1%,65%,80.1%,90%,92.1%,100% {
-            color:var(--white);
-            text-shadow: 0 0 10px var(--cont),
-                        0 0 20px var(--cont),
-                        0 0 40px var(--cont),
-                        0 0 80px var(--cont),
-                        0 0 160px var(--cont);
-        }
-    }
-    @media screen and (max-width: 650px) {
-        h2 {
-            font-size: 2em;
-        }
-    }
-    @media screen and (max-width: 450px) {
-        h2 {
-            font-size: 1.5em;
-        }
-    }
-    @media screen and (max-height: 600px) {
-        h2 {
-            font-size: 1.5em;
-            position: relative;
-            top: 45px;
-        }
-    }
+	div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 5em;
+	}
+	h2 {
+		font-size: 3em;
+		animation: animate 8s linear forwards;
+		text-align: center;
+	}
+	@keyframes animate {
+		18.1%,
+		10%,
+		20%,
+		50.1%,
+		60%,
+		65.1%,
+		80%,
+		90.1%,
+		92% {
+			color: var(--bgc);
+			text-shadow: 0 0 4px var(--black);
+		}
+		0%,
+		18%,
+		20.1%,
+		30%,
+		50%,
+		60.1%,
+		65%,
+		80.1%,
+		90%,
+		92.1%,
+		100% {
+			color: var(--white);
+			text-shadow:
+				0 0 10px var(--cont),
+				0 0 20px var(--cont),
+				0 0 40px var(--cont),
+				0 0 80px var(--cont),
+				0 0 160px var(--cont);
+		}
+	}
+	@media screen and (max-width: 650px) {
+		h2 {
+			font-size: 2em;
+		}
+	}
+	@media screen and (max-width: 450px) {
+		h2 {
+			font-size: 1.5em;
+		}
+	}
+	@media screen and (max-height: 600px) {
+		h2 {
+			font-size: 1.5em;
+			position: relative;
+			top: 45px;
+		}
+	}
 </style>

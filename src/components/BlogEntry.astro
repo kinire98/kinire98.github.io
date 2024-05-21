@@ -1,41 +1,37 @@
 ---
-
 interface Props {
-    title: string,
-    author: string,
-    date: Date,
-    img_url: string,
-    url: string
+	title: string;
+	author: string;
+	date: Date;
+	img_url: string;
+	url: string;
 }
 
 const { title, author, date, img_url, url } = Astro.props;
-let parsedDate = date === undefined 
-? ""
-: date.toString().substring(0,9);
+let parsedDate = date === undefined ? "" : date.toString().substring(0, 9);
 ---
 
-
-<figure data-url={ url }>
-    <img src={ img_url } alt="">
-    <figcaption>
-        <h2>{ title }</h2>
-        <span>{ author }</span>
-        <span>{ parsedDate }</span>
-    </figcaption>
+<figure data-url={url}>
+	<img src={img_url} alt="" />
+	<figcaption>
+		<h2>{title}</h2>
+		<span>{author}</span>
+		<span>{parsedDate}</span>
+	</figcaption>
 </figure>
 
 <style>
-    figure {
-        width: auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        margin: 15px;
-        cursor: pointer;
-        overflow: hidden;
-    }
-    figure *  {
-        margin: 15px;
-    }
+	figure {
+		width: auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		margin: 15px;
+		cursor: pointer;
+		overflow: hidden;
+	}
+	figure * {
+		margin: 15px;
+	}
 </style>

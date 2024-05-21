@@ -4,60 +4,63 @@ const { frontmatter } = Astro.props;
 ---
 
 <MenuLayout title={frontmatter.title}>
-    <main>
-        <article id="central">
-            <slot />
-        </article>
-    </main>
+	<main>
+		<article id="central">
+			<slot />
+		</article>
+	</main>
 </MenuLayout>
 
 <style is:global>
-    @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-    #central {
-        min-width: 60vw;
-        max-width: 75vw;
-        padding: 100px;
-        flex-direction: column;
-        text-align: left;
-    }
-    #central h1 {
-        font-size: 75px;
-    }
-    #central h2 {
-        font-size: 60px;
-    }
-    #central h3 {
-        font-size: 50px
-    }
-    #central h4 {
-        font-size: 45px;
-    }
-    #central h5 {
-        font-size: 40px
-    }
-    #central h6 {
-        font-size: 30px;
-    }
-    #central p, strong, em, pre {
-        font-size: 20px;
-        font-family: "Rubik", sans-serif;
-    }
-    #central img {
-        text-align: center;
-        font-weight: 200;
-    }
-    #central pre, #central pre * {
-        font-family: "Rubik", sans-serif;
-        font-weight: bold;
-    }
-    @media screen and (max-width: 1100px) {
-       #central {
-        max-width: 100%;
-       } 
-    }
-    @media screen and (max-width: 650px) {
-        #central {
-            padding: 25px;
-        } 
-    }
+	@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+	#central {
+		min-width: 60vw;
+		max-width: 75vw;
+		padding: 100px;
+		flex-direction: column;
+		text-align: left;
+		h1 {
+			font-size: 75px;
+		}
+		h2 {
+			font-size: 60px;
+		}
+		h3 {
+			font-size: 50px;
+		}
+		h4 {
+			font-size: 45px;
+		}
+		h5 {
+			font-size: 40px;
+		}
+		h6 {
+			font-size: 30px;
+		}
+		p,
+		strong,
+		em {
+			font-family: "Rubik", sans-serif;
+		}
+		img {
+			text-align: center;
+			font-weight: 200;
+		}
+		pre,
+		pre * {
+			font-size: 20px;
+			font-family: "Rubik", sans-serif;
+			font-weight: bold;
+		}
+	}
+	@media screen and (max-width: 1100px) {
+		#central {
+			max-width: 100%;
+		}
+	}
+	@media screen and (max-width: 650px) {
+		#central {
+			padding: 25px;
+		}
+	}
 </style>

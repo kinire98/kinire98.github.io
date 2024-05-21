@@ -1,102 +1,124 @@
 ---
 import MenuLayout from "../layouts/MenuLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import ProjectCounter from "../components/ProjectCounter.astro";
 //import jsonTest from "../helpers/jsontest";
 const res = await fetch("https://api.github.com/users/kinire98/repos");
 const json = await res.json();
 //const json = JSON.parse(jsonTest());
-
 ---
 
-
 <MenuLayout title="Projects - kinire">
-    <div>
-        {
-            json.map((ob: any) => (
-
-                <ProjectCard name={ob.name} desc={ob.description} url={ob.html_url} language={ob.language} has_pages={ob.has_pages}/>
-            ))
-        }
-        <img src="/github.svg" id="imagen-github"/>
-    </div>
+	<div>
+		{
+			json.map((ob: any) => (
+				<ProjectCard
+					name={ob.name}
+					desc={ob.description}
+					url={ob.html_url}
+					language={ob.language}
+					has_pages={ob.has_pages}
+				/>
+			))
+		}
+		<img src="/github.svg" id="imagen-github" />
+		<ProjectCounter num={json.length} />
+	</div>
 </MenuLayout>
 
 <script>
-    import openLink from "../helpers/openLink";
-    import showLetters from "../helpers/showLetters"
-    const $projects = document.querySelectorAll('.project');
+	import openLink from "../helpers/openLink";
+	import showLetters from "../helpers/showLetters";
+	const $projects = document.querySelectorAll(".project");
 
-    const INTERVALLENGTH: number = 15000;
+	// ! If changed, change also the one in the Project Counter
+	const INTERVALLENGTH: number = 10000;
 
-    let position: number = 0;
+	let position: number = 0;
 
-    function show($el: HTMLElement)  {
-        $el.style.visibility = 'visible';
-        $el.style.opacity = '1';
-        const $title: HTMLElement = $el.querySelector('h2')!;
-        showLetters($title, INTERVALLENGTH);
-    }
-    function hide($el: HTMLElement) {
-        $el.style.visibility = 'hidden';
-        $el.style.opacity = '0';
-        $el.querySelector('h2')!.style.display = 'none';
-        $el.querySelector('h2')!.innerHTML = '';
-    }
+	function show($el: HTMLElement) {
+		$el.style.visibility = "visible";
+		$el.style.opacity = "1";
+		const $title: HTMLElement = $el.querySelector("h2")!;
+		showLetters($title, INTERVALLENGTH);
+	}
+	function hide($el: HTMLElement) {
+		$el.style.visibility = "hidden";
+		$el.style.opacity = "0";
+		$el.querySelector("h2")!.style.display = "none";
+		$el.querySelector("h2")!.innerHTML = "";
+	}
 
-    $projects.forEach((el) => {
-        const positionInside = position;
-        const $el = el as HTMLElement;
-        //Show the letters of each project
-        // Hide them
-        hide($el);
-        // First iteration
-        setTimeout(() => {show($el)}, INTERVALLENGTH * positionInside);
-        setTimeout(() => {hide($el)},INTERVALLENGTH + (INTERVALLENGTH * positionInside));
-        // Following iterations
-        setInterval(() => {
-            setTimeout(() => {show($el)}, INTERVALLENGTH * positionInside);
-            setTimeout(() => {hide($el)},INTERVALLENGTH + (INTERVALLENGTH * positionInside));
-        }, INTERVALLENGTH * $projects.length);
-        // Position update
-        position++;
+	$projects.forEach((el) => {
+		const positionInside = position;
+		const $el = el as HTMLElement;
+		//Show the letters of each project
+		// Hide them
+		hide($el);
+		// First iteration
+		setTimeout(() => {
+			show($el);
+		}, INTERVALLENGTH * positionInside);
+		setTimeout(
+			() => {
+				hide($el);
+			},
+			INTERVALLENGTH + INTERVALLENGTH * positionInside
+		);
+		// Following iterations
+		setInterval(() => {
+			setTimeout(() => {
+				show($el);
+			}, INTERVALLENGTH * positionInside);
+			setTimeout(
+				() => {
+					hide($el);
+				},
+				INTERVALLENGTH + INTERVALLENGTH * positionInside
+			);
+		}, INTERVALLENGTH * $projects.length);
+		// Position update
+		position++;
 
-        // Opening the link to the github repo
-        const $githubRepo = el.querySelector('[data-href]') as HTMLElement;
-        openLink($githubRepo, $githubRepo.dataset.href!);
+		// Opening the link to the github repo
+		const $githubRepo = el.querySelector("[data-href]") as HTMLElement;
+		openLink($githubRepo, $githubRepo.dataset.href!);
 
-        // Creating the a for opening ghpages in case the project has one
-        const $hasghPages = el.querySelector('[data-path]');
-        if($hasghPages !== null) {
-            const $ghpages = $hasghPages as HTMLElement;
-            openLink($ghpages, $ghpages.dataset.path!);
-        }
+		// Creating the a for opening ghpages in case the project has one
+		const $hasghPages = el.querySelector("[data-path]");
+		if ($hasghPages !== null) {
+			const $ghpages = $hasghPages as HTMLElement;
+			openLink($ghpages, $ghpages.dataset.path!);
+		}
+	});
 
-    });
-
-    openLink(document.getElementById('imagen-github') as HTMLElement, 'https://github.com/kinire98');
+	openLink(
+		document.getElementById("imagen-github") as HTMLElement,
+		"https://github.com/kinire98"
+	);
 </script>
 <style>
-    div {
-        height: 100dvh;
-        width: 100dvw;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    img {
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        top: 30px;
-        right: 30px;
-        transition: all .3s;
-    }
-    img:hover {
-        filter: drop-shadow(0 0 5px var(--cont));
-    }
+	div {
+		height: 100dvh;
+		width: 100dvw;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	img {
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		top: 30px;
+		right: 30px;
+		transition: all 0.3s;
+	}
+	img:hover {
+		filter: drop-shadow(0 0 5px var(--cont));
+	}
 </style>
 <style is:global>
-    body {
-        overflow: hidden;
-    }
+	body {
+		overflow: hidden;
+	}
 </style>
