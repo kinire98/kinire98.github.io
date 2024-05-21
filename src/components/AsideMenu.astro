@@ -13,7 +13,7 @@ import LinkButton from "./LinkButton.astro";
 			<LinkButton id="home" content="Home" path="/" />
 		</li>
 		<li>
-			<LinkButton id="about_me" content="About&nbsp;me" path="/about_me" />
+			<LinkButton id="about_me" content="About me" path="/about_me" />
 		</li>
 		<li>
 			<LinkButton id="projects" content="Projects" path="/projects" />
@@ -50,7 +50,7 @@ import LinkButton from "./LinkButton.astro";
 		}
 	}
 	$ham?.addEventListener("click", changes);
-	$black?.addEventListener("click", (e) => {
+	$black?.addEventListener("click", () => {
 		if (!hidden) changes();
 	});
 	let $els = document.querySelectorAll("aside button[data-path]");
