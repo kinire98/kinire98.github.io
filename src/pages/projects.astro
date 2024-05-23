@@ -2,10 +2,14 @@
 import MenuLayout from "../layouts/MenuLayout.astro";
 import ProjectCard from "../components/ProjectCard.astro";
 import ProjectCounter from "../components/ProjectCounter.astro";
-//import jsonTest from "../helpers/jsontest";
+import orderGithubProjects from "../helpers/orderGithubProjects";
+
 const res = await fetch("https://api.github.com/users/kinire98/repos");
-const json = await res.json();
-//const json = JSON.parse(jsonTest());
+let json = await res.json();
+//import jsonTest from "../helpers/jsontest";
+//let json = JSON.parse(jsonTest());
+
+json = orderGithubProjects(json);
 ---
 
 <MenuLayout title="Projects - kinire">
@@ -21,7 +25,7 @@ const json = await res.json();
 				/>
 			))
 		}
-		<img src="/github.svg" id="imagen-github" />
+		<img src="/github.svg" id="img-github" />
 		<ProjectCounter num={json.length} />
 	</div>
 </MenuLayout>
@@ -30,24 +34,27 @@ const json = await res.json();
 	import openLink from "../helpers/openLink";
 	import showLetters from "../helpers/showLetters";
 	const $projects = document.querySelectorAll(".project");
-
+	const $projectsArrow = document.querySelectorAll(".change");
 	// ! If changed, change also the one in the Project Counter
-	const INTERVALLENGTH: number = 10000;
+	const INTERVALLENGTH: number = 9500;
 
 	let position: number = 0;
 
-	function show($el: HTMLElement) {
+	const show = ($el: HTMLElement) => {
 		$el.style.visibility = "visible";
 		$el.style.opacity = "1";
 		const $title: HTMLElement = $el.querySelector("h2")!;
 		showLetters($title, INTERVALLENGTH);
-	}
-	function hide($el: HTMLElement) {
+	};
+	const hide = ($el: HTMLElement) => {
 		$el.style.visibility = "hidden";
 		$el.style.opacity = "0";
 		$el.querySelector("h2")!.style.display = "none";
 		$el.querySelector("h2")!.innerHTML = "";
-	}
+	};
+	const getShownElement = (): number => {
+		return 0;
+	};
 
 	$projects.forEach((el) => {
 		const positionInside = position;
@@ -55,31 +62,8 @@ const json = await res.json();
 		//Show the letters of each project
 		// Hide them
 		hide($el);
-		// First iteration
-		setTimeout(() => {
-			show($el);
-		}, INTERVALLENGTH * positionInside);
-		setTimeout(
-			() => {
-				hide($el);
-			},
-			INTERVALLENGTH + INTERVALLENGTH * positionInside
-		);
-		// Following iterations
-		setInterval(() => {
-			setTimeout(() => {
-				show($el);
-			}, INTERVALLENGTH * positionInside);
-			setTimeout(
-				() => {
-					hide($el);
-				},
-				INTERVALLENGTH + INTERVALLENGTH * positionInside
-			);
-		}, INTERVALLENGTH * $projects.length);
 		// Position update
 		position++;
-
 		// Opening the link to the github repo
 		const $githubRepo = el.querySelector("[data-href]") as HTMLElement;
 		openLink($githubRepo, $githubRepo.dataset.href!);
@@ -92,8 +76,50 @@ const json = await res.json();
 		}
 	});
 
+	let counter = 0;
+	show($projects[counter] as HTMLElement);
+	let interval = setInterval(() => {
+		console.log("counter: " + counter);
+		console.log("lenght: " + ($projects.length - 1));
+		hide($projects[counter] as HTMLElement);
+		counter++;
+		if (counter >= $projects.length) counter = 0;
+		show($projects[counter] as HTMLElement);
+	}, INTERVALLENGTH);
+
+	$projectsArrow[0].addEventListener("click", () => {
+		hide($projects[counter] as HTMLElement);
+		counter--;
+		if (counter < 0) counter = $projects.length - 1;
+		show($projects[counter] as HTMLElement);
+		clearInterval(interval);
+		interval = setInterval(() => {
+			console.log("counter: " + counter);
+			console.log("lenght: " + ($projects.length - 1));
+			hide($projects[counter] as HTMLElement);
+			counter++;
+			if (counter >= $projects.length) counter = 0;
+			show($projects[counter] as HTMLElement);
+		}, INTERVALLENGTH);
+	});
+	$projectsArrow[1].addEventListener("click", () => {
+		hide($projects[counter] as HTMLElement);
+		counter++;
+		if (counter >= $projects.length) counter = 0;
+		show($projects[counter] as HTMLElement);
+		clearInterval(interval);
+		interval = setInterval(() => {
+			console.log("counter: " + counter);
+			console.log("lenght: " + ($projects.length - 1));
+			hide($projects[counter] as HTMLElement);
+			counter++;
+			if (counter >= $projects.length) counter = 0;
+			show($projects[counter] as HTMLElement);
+		}, INTERVALLENGTH);
+	});
+
 	openLink(
-		document.getElementById("imagen-github") as HTMLElement,
+		document.getElementById("img-github") as HTMLElement,
 		"https://github.com/kinire98"
 	);
 </script>

@@ -44,6 +44,9 @@ const { content, id, path } = Astro.props;
 		transform: translateX(11%);
 	}
 
-	@media screen and (max-height: 600px) {
+	@media screen and (max-width: 667px) {
+		button {
+			width: 90%;
+		}
 	}
 </style>

@@ -13,38 +13,75 @@ const genDivs = (num: number): string => {
 };
 ---
 
-<div id="wrap" set:html={genDivs(num)} />
+<!-- <div id="wrap" set:html={genDivs(num)} />-->
+<div id="wrap" data-num={num}>
+	<span class="change">&lt;- </span>
+	<span id="numbers">
+		<h2>1/{num}</h2>
+	</span>
+	<span class="change">-&gt;</span>
+</div>
 
 <script>
 	// ! If changed, change also the one in the Project Counter
-	const INTERVALLENGTH: number = 10000;
+	const INTERVALLENGTH: number = 9500;
 	const $counterSet = document.querySelectorAll("#wrap div");
 	let counter = 1;
-	const changeClass = (position: number) => {
+	/*const changeClass = (position: number) => {
 		if (position === 0) {
 			$counterSet[$counterSet.length - 1].classList.remove("selected");
 		} else {
 			$counterSet[position - 1].classList.remove("selected");
 		}
 		$counterSet[position].classList.add("selected");
-	};
+	};*/
+	const count = document.getElementById("numbers")!;
+	const countPar = document.getElementById("wrap")!;
 
-	setInterval(() => {
-		changeClass(counter);
+	count.innerHTML = "<h3>" + counter + "/" + countPar.dataset.num + "</h3>";
+	let int = setInterval(() => {
+		//changeClass(counter);
 		counter++;
-		if (counter >= $counterSet.length) counter = 0;
+		if (counter > parseInt(countPar.dataset.num!)) counter = 1;
+		count.innerHTML = "<h3>" + counter + "/" + countPar.dataset.num + "</h3>";
 	}, INTERVALLENGTH);
+	const $buttons = document.querySelectorAll(".change")!;
+	$buttons[0].addEventListener("click", () => {
+		counter--;
+		if (counter <= 0) counter = parseInt(countPar.dataset.num!);
+		count.innerHTML = "<h3>" + counter + "/" + countPar.dataset.num + "</h3>";
+		clearInterval(int);
+		int = setInterval(() => {
+			counter++;
+			if (counter > parseInt(countPar.dataset.num!)) counter = 1;
+			count.innerHTML = "<h3>" + counter + "/" + countPar.dataset.num + "</h3>";
+		}, INTERVALLENGTH);
+	});
+	$buttons[1].addEventListener("click", () => {
+		counter++;
+		if (counter > parseInt(countPar.dataset.num!)) counter = 1;
+		count.innerHTML = "<h3>" + counter + "/" + countPar.dataset.num + "</h3>";
+		clearInterval(int);
+		int = setInterval(() => {
+			counter++;
+			if (counter > parseInt(countPar.dataset.num!)) counter = 1;
+			count.innerHTML = "<h3>" + counter + "/" + countPar.dataset.num + "</h3>";
+		}, INTERVALLENGTH);
+	});
 </script>
 
 <style>
 	#wrap {
 		position: absolute;
-		bottom: 50px;
+		bottom: 90px;
 		display: flex;
 		align-items: center;
 		justify-content: space-evenly;
 		height: 15px;
-		width: 80%;
+		width: 40%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		div {
 			height: 1px;
 			width: 30px;
@@ -56,6 +93,62 @@ const genDivs = (num: number): string => {
 		.selected {
 			height: 5px;
 			width: 45px;
+		}
+		.change {
+			cursor: pointer;
+			user-select: none;
+			font-size: 70px;
+		}
+		h3 {
+			user-select: none;
+			font-size: 40px;
+		}
+		.change,
+		h3 {
+			color: var(--white);
+			text-shadow:
+				0 0 10px var(--cont),
+				0 0 20px var(--cont),
+				0 0 40px var(--cont),
+				0 0 80px var(--cont),
+				0 0 160px var(--cont);
+			font-weight: bold;
+		}
+	}
+	@media screen and (max-width: 900px) {
+		#wrap {
+			h3 {
+				font-size: 30px;
+			}
+			.change {
+				font-size: 50px;
+			}
+		}
+	}
+	@media screen and (max-width: 700px) {
+		#wrap {
+			width: 60%;
+		}
+	}
+	@media screen and (max-width: 500px) {
+		#wrap {
+			h3 {
+				font-size: 25px;
+			}
+			.change {
+				font-size: 45px;
+			}
+		}
+	}
+	@media screen and (max-height: 700px) {
+		#wrap {
+			bottom: 25px;
+			h3 {
+				font-size: 20px;
+			}
+			.change {
+				font-size: 40px;
+			}
 		}
 	}
 </style>
