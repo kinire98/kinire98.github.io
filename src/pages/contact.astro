@@ -1,5 +1,69 @@
 ---
 import MenuLayout from "../layouts/MenuLayout.astro";
+import Title from "../components/Title.astro";
 ---
 
-<MenuLayout title="Contact - kinire" />
+<MenuLayout title="Contact - kinire">
+	<Title content="Contact" />
+	<div id="img">
+		<img src="/curri_icons/others/phone.svg" alt="Phone" id="phone" />
+		<div>
+			<img
+				src="/curri_icons/others/outlook.svg"
+				alt="Outlook logo"
+				id="outlook"
+			/>
+			<img src="/curri_icons/others/gmail.svg" alt="Gmail logo" id="gmail" />
+			<img
+				src="/curri_icons/others/linkedin.svg"
+				alt="LinkedIn logo"
+				id="linkedin"
+			/>
+			<img src="/curri_icons/others/github.svg" alt="Github logo" id="github" />
+		</div>
+	</div>
+</MenuLayout>
+
+<script>
+	import openLink from "../helpers/openLink";
+	import showLetters from "../helpers/showLetters";
+
+	showLetters(document.querySelector("h2")!, 9500);
+	openLink(
+		document.getElementById("outlook")!,
+		"mailto:iknitgarri@outlook.com"
+	);
+	openLink(document.getElementById("gmail")!, "mailto:iknitgarri@gmail.com");
+	openLink(
+		document.getElementById("linkedin")!,
+		"https://www.linkedin.com/in/iker-nieto-79985b232/"
+	);
+	openLink(document.getElementById("github")!, "https://github.com/kinire98");
+	openLink(document.getElementById("phone")!, "tel:+34642424388");
+</script>
+
+<style>
+	#img {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		margin-block: 50px;
+		> * {
+			margin-block: 100px;
+		}
+	}
+	img {
+		height: 50px;
+		cursor: pointer;
+	}
+</style>
+
+<style is:global>
+	main {
+		flex-direction: column;
+	}
+	h2 {
+		font-size: 3.5em !important;
+	}
+</style>
