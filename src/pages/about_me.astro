@@ -3,33 +3,31 @@ import MenuLayout from "../layouts/MenuLayout.astro";
 ---
 
 <MenuLayout title="About me - kinire">
-	<div id="wrap">
-		<div id="data-static">
-			<img src="/tank.jpg" alt="Logo" id="logo" />
-			<h1>Iker Nieto Garrido</h1>
-			<h2 id="age"></h2>
-			<h3 id="city">León, Spain</h3>
-			<!--<img
-				src="/curri_icons/others/linkedin.svg"
-				alt="LinkedIn Logo"
-				id="linkedin"
-				class="links"
-			/>
-			<img
-				src="/curri_icons/others/github.svg"
-				alt="Github Logo"
-				id="github"
-				class="links"
-			/>-->
-			<img
-				src="/curri_icons/others/cv.svg"
-				alt="CV button"
-				id="cv"
-				class="links"
-			/>
-		</div>
-		<div id="changed"></div>
-	</div>
+  <div id="data-static">
+ 		<img src="/tank.jpg" alt="Logo" id="logo" />
+ 		<h1>Iker Nieto Garrido</h1>
+ 		<h2 id="age"></h2>
+ 		<h3 id="city">León, Spain</h3>
+ 		<!--<img
+ 			src="/curri_icons/others/linkedin.svg"
+ 			alt="LinkedIn Logo"
+ 			id="linkedin"
+ 			class="links"
+ 		/>
+ 		<img
+ 			src="/curri_icons/others/github.svg"
+ 			alt="Github Logo"
+ 			id="github"
+ 			class="links"
+ 		/>-->
+ 		<img
+ 			src="/curri_icons/others/cv.svg"
+ 			alt="CV button"
+ 			id="cv"
+ 			class="links"
+ 		/>
+    <h4>CV also available in <span id="cves">Spanish</span>!</small>
+ 	</div>
 </MenuLayout>
 <style>
 	#wrap {
@@ -64,6 +62,10 @@ import MenuLayout from "../layouts/MenuLayout.astro";
 			filter: drop-shadow(0 0 5px var(--cont));
 			cursor: pointer;
 		}
+    #cves {
+      cursor: pointer;
+      text-decoration: underline;
+    }
 	}
 </style>
 <style is:global>
@@ -100,4 +102,5 @@ import MenuLayout from "../layouts/MenuLayout.astro";
 	);
 	openLink(document.getElementById("github")!, "https://github.com/kinire98");*/
 	openLink(document.getElementById("cv")!, "/IkerNietoCV.pdf");
+  openLink(document.getElementById("cves")!, "/IkerNietoCVES.pdf");
 </script>

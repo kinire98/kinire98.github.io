@@ -28,18 +28,18 @@ import Title from "../components/Title.astro";
 	import openLink from "../helpers/openLink";
 	import showLetters from "../helpers/showLetters";
 
-	showLetters(document.querySelector("h2")!, 9500);
+	showLetters(document.querySelector("h2")! as HTMLElement, 9500);
 	openLink(
-		document.getElementById("outlook")!,
+		document.getElementById("outlook")! as HTMLElement,
 		"mailto:iknitgarri@outlook.com"
 	);
-	openLink(document.getElementById("gmail")!, "mailto:iknitgarri@gmail.com");
+	openLink(document.getElementById("gmail")! as HTMLElement, "mailto:iknitgarri@gmail.com");
 	openLink(
-		document.getElementById("linkedin")!,
+		document.getElementById("linkedin")! as HTMLElement,
 		"https://www.linkedin.com/in/iker-nieto-79985b232/"
 	);
-	openLink(document.getElementById("github")!, "https://github.com/kinire98");
-	openLink(document.getElementById("phone")!, "tel:+34642424388");
+	openLink(document.getElementById("github")! as HTMLElement, "https://github.com/kinire98");
+	openLink(document.getElementById("phone")! as HTMLElement, "tel:+34642424388");
 </script>
 
 <style>

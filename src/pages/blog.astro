@@ -7,7 +7,7 @@ import LinkButton from "../components/LinkButton.astro";
 
 let posts: any[];
 try {
-	posts = await Astro.glob("./blog/*.md");
+  posts = await Astro.glob('./blog/*.md');
 	posts = shuffleArray(posts);
 	posts = posts.slice(0, 15);
 } catch (error) {

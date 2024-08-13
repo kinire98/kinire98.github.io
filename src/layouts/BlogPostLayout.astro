@@ -1,6 +1,26 @@
 ---
+import shuffleArray from "../helpers/shuffleArray";
 import MenuLayout from "./MenuLayout.astro";
 const { frontmatter } = Astro.props;
+
+let posts;
+try {
+  posts = await Astro.glob("*.md");
+  posts = shuffleArray(posts);
+  let i;
+  for(i = 0; i < posts.length - 2; i++) {
+    if (posts[i].url === Astro.url.pathname 
+      || posts[i + 1].url === Astro.url.pathname
+      || posts[i + 2].url === Astro.url.pathname) {
+      continue;
+    } 
+    break;
+  }
+    posts = posts.slice(i, i + 2);
+} catch (error) {
+  posts = "";
+}
+
 ---
 
 <MenuLayout title={frontmatter.title}>
@@ -9,6 +29,11 @@ const { frontmatter } = Astro.props;
 			<slot />
 		</article>
 	</main>
+  <footer>
+    {
+      
+    }
+  </footer>
 </MenuLayout>
 
 <style is:global>
