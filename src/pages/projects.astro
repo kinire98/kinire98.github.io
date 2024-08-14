@@ -4,10 +4,10 @@ import ProjectCard from "../components/ProjectCard.astro";
 import ProjectCounter from "../components/ProjectCounter.astro";
 import orderGithubProjects from "../helpers/orderGithubProjects";
 
-//const res = await fetch("https://api.github.com/users/kinire98/repos");
-//let json = await res.json();
-import jsonTest from "../helpers/jsontest";
-let json = JSON.parse(jsonTest());
+const res = await fetch("https://api.github.com/users/kinire98/repos");
+let json = await res.json();
+//import jsonTest from "../helpers/jsontest";
+//let json = JSON.parse(jsonTest());
 
 json = orderGithubProjects(json);
 ---
