@@ -10,9 +10,9 @@ import LinkButtonAnim from "../components/LinkButtonAnim.astro";
  		<h2 id="age"></h2>
  		<h3 id="city">León, Spain</h3>
     <div>
-      <LinkButtonAnim id="me" content="About me" path="./personal"/>
       <LinkButtonAnim id="edex" content="Education and experience" path="./education-experience"/>
       <LinkButtonAnim id="skills" content="My skills" path="./skills"/>
+      <LinkButtonAnim id="me" content="My story" path="./my-story"/>
     </div>
  		<img
  			src="/curri_icons/others/cv.svg"
@@ -35,6 +35,7 @@ import LinkButtonAnim from "../components/LinkButtonAnim.astro";
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
+    flex-wrap: wrap;
 		#logo {
 			border-radius: 50%;
 		}
@@ -51,6 +52,7 @@ import LinkButtonAnim from "../components/LinkButtonAnim.astro";
 		}
 		h1 {
 			text-align: center;
+      text-wrap: balance;
 		}
 		#cv:hover {
 			filter: drop-shadow(0 0 5px var(--cont));
@@ -61,22 +63,41 @@ import LinkButtonAnim from "../components/LinkButtonAnim.astro";
       text-decoration: underline;
     }
     > div {
-      width: 275px;
-      * {
-        margin-block: 15px;
-      }
+      display: flex;
+      width: 1200px;
+      align-items: center;
+      justify-content: space-evenly;
+      flex-direction: row;
     }
 	}
+  @media screen and (max-width: 1250px) {
+    #data-static > div {
+      flex-direction: column;
+    } 
+  }
+  @media screen and (max-width: 415px) {
+    #data-static {
+      h1 {
+        word-break: break-all;
+      }
+    }
+  }
 </style>
 <style is:global>
-	body {
-		overflow: hidden;
-	}
+  #data-static > div > button {
+    width: 30% !important;
+  }
 	@media screen and (max-height: 500px) {
 		body {
 			overflow: visible;
 		}
 	}
+  @media screen and (max-width: 415px) {
+    #data-static > div > button {
+      width: 25% !important;
+    }
+  }
+
 </style>
 
 <script>
@@ -100,7 +121,7 @@ import LinkButtonAnim from "../components/LinkButtonAnim.astro";
 	openLink(document.getElementById("github")!, "https://github.com/kinire98");*/
 	openLink(document.getElementById("cv")!, "/IkerNietoCV.pdf");
   openLink(document.getElementById("cves")!, "/IkerNietoCVES.pdf");
-  openPage(document.getElementById("me")!, "/about_me/personal");
+  openPage(document.getElementById("me")!, "/about_me/my-story");
   openPage(document.getElementById("edex")!, "/about_me/education-experience");
   openPage(document.getElementById("skills")!, "/about_me/skills");
 </script>
