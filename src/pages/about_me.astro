@@ -9,7 +9,7 @@ import LinkButtonAnim from "../components/LinkButtonAnim.astro";
  		<h1>Iker Nieto Garrido</h1>
  		<h2 id="age"></h2>
  		<h3 id="city">León, Spain</h3>
-    <div>
+    <div id="buttons">
       <LinkButtonAnim id="edex" content="Education and experience" path="./education-experience"/>
       <LinkButtonAnim id="skills" content="My skills" path="./skills"/>
       <LinkButtonAnim id="me" content="My story" path="./my-story"/>
@@ -24,18 +24,12 @@ import LinkButtonAnim from "../components/LinkButtonAnim.astro";
  	</div>
 </MenuLayout>
 <style>
-	#wrap {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: row;
-	}
 	#data-static {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-    flex-wrap: wrap;
+    width: 100%;
 		#logo {
 			border-radius: 50%;
 		}
@@ -62,40 +56,28 @@ import LinkButtonAnim from "../components/LinkButtonAnim.astro";
       cursor: pointer;
       text-decoration: underline;
     }
-    > div {
-      display: flex;
-      width: 1200px;
-      align-items: center;
-      justify-content: space-evenly;
-      flex-direction: row;
-    }
 	}
+  #buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
   @media screen and (max-width: 1250px) {
-    #data-static > div {
+    #buttons {
       flex-direction: column;
     } 
   }
-  @media screen and (max-width: 415px) {
-    #data-static {
-      h1 {
-        word-break: break-all;
-      }
-    }
-  }
+
 </style>
 <style is:global>
-  #data-static > div > button {
-    width: 30% !important;
-  }
 	@media screen and (max-height: 500px) {
 		body {
-			overflow: visible;
+			overflow-y: visible;
 		}
 	}
-  @media screen and (max-width: 415px) {
-    #data-static > div > button {
-      width: 25% !important;
-    }
+  #data-static > div > button {
+    width: 300px !important;
+    margin-inline: 50px;
   }
 
 </style>
