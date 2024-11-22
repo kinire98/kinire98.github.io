@@ -2,5 +2,48 @@
 import MenuLayout from "../../layouts/MenuLayout.astro"
 ---
 <MenuLayout title="My educaction - kinire">
-  <h1>Education and experience</h1>
+  <div id="container-education">
+    <h1>Education</h1>
+    <div>
+      <h2>Superior Technician in <br/> Multiplatform Application Development</h2>
+      <p>IES San Andrés 2023-2025</p>
+    </div>
+    <div>
+      <h2>Technician in Microcomputing Systems and Networks</h2>
+      <p>IES San Andrés 2021-2023</p>
+      <p>9.5 (Honorable mention)</p>
+    </div>
+    <div>
+      <h2>Mandatory teachings</h2>
+      <p>IES Lancia prev-2021</p>
+      <p>9.48 (Honorable mention)</p>
+    </div>
+  </div>
+  <div>
+    <h1>Experience</h1>
+    <div>
+      <h2>Intership</h2>
+      <p>Proconsi</p>
+    </div>
+  </div>
 </MenuLayout>
+
+<style>
+  #container-education {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    div {
+      background-color: var(--gray-trans);
+      text-align: center;
+      margin-block: 5vh;
+    }
+  }
+  h2 {
+		font-family: "Rubik", sans-serif !important;
+  }
+  p {
+		font-family: "Rubik", sans-serif !important;
+  }
+</style>

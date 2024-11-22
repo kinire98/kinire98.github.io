@@ -1,43 +1,55 @@
 ---
 import shuffleArray from "../helpers/shuffleArray";
 import MenuLayout from "./MenuLayout.astro";
+import BlogEntry from "../components/BlogEntry.astro";
 const { frontmatter } = Astro.props;
 
-let posts;
+let posts: any[];
 try {
-  posts = await Astro.glob("*.md");
-  posts = shuffleArray(posts);
-  let i;
-  for(i = 0; i < posts.length - 2; i++) {
-    if (posts[i].url === Astro.url.pathname 
-      || posts[i + 1].url === Astro.url.pathname
-      || posts[i + 2].url === Astro.url.pathname) {
-      continue;
-    } 
-    break;
-  }
-    posts = posts.slice(i, i + 2);
+  	posts = await Astro.glob("../pages/blog/*.md");
+  	posts = shuffleArray(posts);
+    posts = posts.slice(0, 4);
 } catch (error) {
-  posts = "";
+  	posts = [];
 }
-
 ---
 
 <MenuLayout title={frontmatter.title}>
-	<main>
+	<div>
 		<article id="central">
 			<slot />
-		</article>
-	</main>
-  <footer>
-    {
-      
-    }
-  </footer>
+		</article><br>
+		<footer>
+			{
+					posts.length === 0
+						? ""
+						: posts.map((post) => (
+								<BlogEntry
+									title={post.frontmatter.article}
+									author={post.frontmatter.author}
+									date={post.frontmatter.date}
+									img_url={post.frontmatter.img_url}
+									url={post.url!}
+								/>
+							))
+				}
+		</footer>
+
+	</div>
 </MenuLayout>
 
 <style is:global>
 	@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+	div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+	}
+	footer {
+		display: inline-grid;
+		grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+	}
 	#central {
 		min-width: 60vw;
 		max-width: 75vw;

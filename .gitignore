@@ -24,6 +24,5 @@ pnpm-debug.log*
 .idea/
 
 # mines
-article*.md
 blog*.md
 jsontest.js
