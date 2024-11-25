@@ -15,11 +15,11 @@ const genDivs = (num: number): string => {
 
 <!-- <div id="wrap" set:html={genDivs(num)} />-->
 <div id="wrap" data-num={num}>
-	<span class="change">&lt;- </span>
+	<span class="change">←</span>
 	<span id="numbers">
 		<h2>1/{num}</h2>
 	</span>
-	<span class="change">-&gt;</span>
+	<span class="change">→</span>
 </div>
 
 <script>

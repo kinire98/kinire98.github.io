@@ -1,13 +1,13 @@
 ---
-import MenuLayout from "../layouts/MenuLayout.astro";
-import BlogEntry from "../components/BlogEntry.astro";
-import Title from "../components/Title.astro";
-import shuffleArray from "../helpers/shuffleArray";
-import LinkButton from "../components/LinkButton.astro";
+import MenuLayout from "../../layouts/MenuLayout.astro";
+import BlogEntry from "../../components/BlogEntry.astro";
+import Title from "../../components/Title.astro";
+import shuffleArray from "../../helpers/shuffleArray";
+import LinkButton from "../../components/LinkButton.astro";
 
 let posts: any[];
 try {
-  	posts = await Astro.glob("./blog/*.md");
+  	posts = await Astro.glob("./*.md");
   	console.log(posts.length);
 	posts = shuffleArray(posts);
   	posts = posts.slice(0, 15);
@@ -52,8 +52,8 @@ try {
 </MenuLayout>
 
 <script>
-	import openLink from "../helpers/openPage";
-	import showLetters from "../helpers/showLetters";
+  import openLink from "../../helpers/openPage";
+  import showLetters from "../../helpers/showLetters";
 	const $button = document.getElementById("all-posts")!;
 	showLetters(document.querySelector("h2")! as HTMLElement, 10000);
 	openLink($button, $button.dataset.path!);

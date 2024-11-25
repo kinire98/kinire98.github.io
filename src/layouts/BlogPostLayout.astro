@@ -1,12 +1,13 @@
 ---
 import shuffleArray from "../helpers/shuffleArray";
 import MenuLayout from "./MenuLayout.astro";
-import BlogEntry from "../components/BlogEntry.astro";
+import SmallBlogEntry from "../components/SmallBlogEntry.astro";
 const { frontmatter } = Astro.props;
 
 let posts: any[];
 try {
   	posts = await Astro.glob("../pages/blog/*.md");
+    posts = posts.filter((post) => post.frontmatter.title != frontmatter.title);
   	posts = shuffleArray(posts);
     posts = posts.slice(0, 4);
 } catch (error) {
@@ -24,7 +25,7 @@ try {
 					posts.length === 0
 						? ""
 						: posts.map((post) => (
-								<BlogEntry
+								<SmallBlogEntry
 									title={post.frontmatter.article}
 									author={post.frontmatter.author}
 									date={post.frontmatter.date}
@@ -47,8 +48,13 @@ try {
 		flex-direction: column;
 	}
 	footer {
-		display: inline-grid;
-		grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+    /*display: inline-grid;
+      grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));*/
+    width: 75%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
 	}
 	#central {
 		min-width: 60vw;
@@ -101,3 +107,12 @@ try {
 		}
 	}
 </style>
+<script>
+import openPage from "../helpers/openPage";
+
+  const posts = document.querySelectorAll("[data-url]");
+  posts.forEach((element) => {
+    let el = element as HTMLElement;
+    openPage(el, el.dataset.url!)
+  })
+</script>

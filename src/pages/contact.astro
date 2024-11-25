@@ -6,20 +6,23 @@ import Title from "../components/Title.astro";
 <MenuLayout title="Contact - kinire">
 	<Title content="Contact" />
 	<div id="img">
-		<img src="/curri_icons/others/phone.svg" alt="Phone" id="phone" />
 		<div>
 			<img
-				src="/curri_icons/others/outlook.svg"
+          src="/icons/web-color/outlook.svg"
 				alt="Outlook logo"
-				id="outlook"
+        id="outlook"
+        class="icon"
 			/>
-			<img src="/curri_icons/others/gmail.svg" alt="Gmail logo" id="gmail" />
+      <img src="/icons/web-color/gmail.svg" alt="Gmail logo" id="gmail" class="icon"/>
+		</div>
+    <div>
 			<img
-				src="/curri_icons/others/linkedin.svg"
+				src="/icons/web-color/linkedin.svg"
 				alt="LinkedIn logo"
 				id="linkedin"
+        class="icon"
 			/>
-			<img src="/curri_icons/others/github.svg" alt="Github logo" id="github" />
+			<img src="/icons/web-color/github.svg" alt="Github logo" id="github" class="icon"/>
 		</div>
 	</div>
 </MenuLayout>
@@ -39,10 +42,12 @@ import Title from "../components/Title.astro";
 		"https://www.linkedin.com/in/iker-nieto-79985b232/"
 	);
 	openLink(document.getElementById("github")! as HTMLElement, "https://github.com/kinire98");
-	openLink(document.getElementById("phone")! as HTMLElement, "tel:+34642424388");
 </script>
 
 <style>
+  div > div > * {
+    margin-inline: 100px;
+  }
 	#img {
 		display: flex;
 		align-items: center;
@@ -54,9 +59,38 @@ import Title from "../components/Title.astro";
 		}
 	}
 	img {
-		height: 50px;
 		cursor: pointer;
+    width: 75px;
+    height: 75px;
+    margin: 15px;
+    
+    border-radius: 15px;
+
+    transition: all .3s;
+    background: transparent;
 	}
+  .icon:hover {
+    box-shadow: 0px 0px 300px var(--bgc); 
+  }
+  @media screen and (max-width: 610px) {
+    div > div > *, #img, #img > * {
+      margin: 0px;
+    }
+    div > div > * {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+    }
+    div > div > * {
+      margin: 30px;
+    }
+    img {
+      margin: 0px;
+    }
+  }
+}
+
 </style>
 
 <style is:global>
