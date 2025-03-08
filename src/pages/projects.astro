@@ -9,6 +9,7 @@ let json = await res.json();
 //import jsonTest from "../helpers/jsontest";
 //let json = JSON.parse(jsonTest());
 
+json = json.filter((json_in: any) => json_in.name != 'kinire98');
 json = orderGithubProjects(json);
 ---
 
